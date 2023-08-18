@@ -27,5 +27,4 @@ class StudentInfoComponent extends Component {
     );
   }
 }
-
 export default StudentInfoComponent;
