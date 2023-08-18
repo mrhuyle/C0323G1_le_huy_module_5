@@ -325,11 +325,12 @@ nav {
   gap: 5rem;
 }
 
-.footer__col h3 {
+.footer__col h2 {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--text-dark);
+  text-align: left;
 }
 
 .footer__col h4 {
@@ -337,6 +338,7 @@ nav {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-dark);
+  text-align: left;
 }
 
 .footer__col p {
@@ -344,6 +346,7 @@ nav {
   color: var(--text-light);
   cursor: pointer;
   transition: 0.3s;
+  text-align: left;
 }
 
 .footer__col p:hover {
