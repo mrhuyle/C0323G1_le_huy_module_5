@@ -1,5 +1,5 @@
 import "./App.css";
-import StudentInfoComponent from "./components/student_info";
+import StudentInfoComponent from "./components/ListStudent";
 
 function App() {
   const students = [
