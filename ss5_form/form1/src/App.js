@@ -1,5 +1,5 @@
 import "./App.css";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SweetAlert2 from "react-sweetalert2";
 import { useState } from "react";
@@ -28,6 +28,16 @@ function App() {
             console.log("Submit");
           }, 1000);
         }}
+        validationSchema={Yup.object({
+          name: Yup.string().required("Required"),
+          email: Yup.string()
+            .required("Required")
+            .matches(
+              /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
+              "Invalid email"
+            ),
+          phone: Yup.string().required("Required"),
+        })}
       >
         <Form>
           <h1>Contact Form</h1>
@@ -35,19 +45,34 @@ function App() {
             <label htmlFor="name">Name</label>
           </div>
           <div>
-            <input type="text" name="name" id="name" />
+            <Field type="text" name="name" id="name" />
+            <ErrorMessage
+              name="name"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="email">Email</label>
           </div>
           <div>
-            <input type="text" name="email" id="email" />
+            <Field type="text" name="email" id="email" />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="phone">Phone</label>
           </div>
           <div>
-            <input type="text" name="phone" id="phone" />
+            <Field type="text" name="phone" id="phone" />
+            <ErrorMessage
+              name="phone"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="message">Message</label>
