@@ -42,6 +42,9 @@ button {
   transform: translateX(-50%);
   margin-top: 20px;
 }
+.error {
+  color: red;
+}
 
 .App {
   text-align: center;

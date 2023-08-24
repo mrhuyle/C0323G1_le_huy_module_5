@@ -1,8 +1,11 @@
 import "./App.css";
 import * as Yup from "yup";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useState } from "react";
+import SweetAlert2 from "react-sweetalert2";
 
 function App() {
+  const [swalProps, setSwalProps] = useState({});
   return (
     <>
       <Formik
@@ -26,6 +29,36 @@ function App() {
           peopleFromCovid: "",
           peopleHasIllness: "",
         }}
+        validationSchema={Yup.object({
+          name: Yup.string().required("Required"),
+          idCard: Yup.string().required("Required"),
+          year: Yup.number().min(1990, "Must be larger than 1990"),
+          nationality: Yup.string().required("Required"),
+          city: Yup.string().required("Required"),
+          district: Yup.string().required("Required"),
+          ward: Yup.string().required("Required"),
+          address: Yup.string().required("Required"),
+          phone: Yup.string().required("Required"),
+          email: Yup.string()
+            .required("Required")
+            .matches(
+              /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
+              "Invalid email"
+            ),
+        })}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          setTimeout(() => {
+            setSubmitting(false);
+            console.log(values);
+            setSwalProps({
+              show: true,
+              title: "Submit Successful",
+              icon: "success",
+            });
+            resetForm({});
+            console.log("Submit");
+          }, 1000);
+        }}
       >
         <Form>
           <h1>Health Declaration</h1>
@@ -34,6 +67,11 @@ function App() {
           </div>
           <div>
             <Field type="text" id="name" name="name" className="text_input" />
+            <ErrorMessage
+              name="name"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="idCard">ID Card</label>
@@ -45,12 +83,22 @@ function App() {
               name="idCard"
               className="text_input"
             />
+            <ErrorMessage
+              name="idCard"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="year">Year of Birth</label>
           </div>
           <div>
-            <Field type="text" id="year" name="year" className="text_input" />
+            <Field type="number" id="year" name="year" className="text_input" />
+            <ErrorMessage
+              name="year"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="gender">Gender: </label>
@@ -69,6 +117,11 @@ function App() {
               name="nationality"
               className="text_input"
             />
+            <ErrorMessage
+              name="nationality"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="company">Company</label>
@@ -103,6 +156,11 @@ function App() {
           </div>
           <div>
             <Field type="text" id="city" name="city" className="text_input" />
+            <ErrorMessage
+              name="city"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="district">District</label>
@@ -114,12 +172,22 @@ function App() {
               name="district"
               className="text_input"
             />
+            <ErrorMessage
+              name="district"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="ward">Ward</label>
           </div>
           <div>
             <Field type="text" id="ward" name="ward" className="text_input" />
+            <ErrorMessage
+              name="ward"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="address">Address</label>
@@ -131,18 +199,33 @@ function App() {
               name="address"
               className="text_input"
             />
+            <ErrorMessage
+              name="address"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="phone">Phone</label>
           </div>
           <div>
             <Field type="text" id="phone" name="phone" className="text_input" />
+            <ErrorMessage
+              name="phone"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           <div>
             <label htmlFor="email">Email</label>
           </div>
           <div>
             <Field type="text" id="email" name="email" className="text_input" />
+            <ErrorMessage
+              name="email"
+              component="span"
+              className="error"
+            ></ErrorMessage>
           </div>
           {/* Third section */}
           <div>
@@ -180,6 +263,12 @@ function App() {
           </div>
         </Form>
       </Formik>
+      <SweetAlert2
+        {...swalProps}
+        onConfirm={() => {
+          setSwalProps({});
+        }}
+      ></SweetAlert2>
     </>
   );
 }
