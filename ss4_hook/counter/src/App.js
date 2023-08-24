@@ -1,12 +1,12 @@
 import "./App.css";
-import Counter1 from "./components/counter1";
-import Counter2 from "./components/counter2";
+import CounterOne from "./components/counterOne";
+import CounterTwo from "./components/counterTwo";
 
 function App() {
   return (
     <>
-      <Counter1></Counter1>
-      <Counter2></Counter2>
+      <CounterOne></CounterOne>
+      <CounterTwo></CounterTwo>
     </>
   );
 }
