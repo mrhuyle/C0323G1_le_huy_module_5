@@ -4,12 +4,15 @@ import { Book } from "./components/Book";
 import { Header } from "./components/Header";
 import * as bookService from "./services/BookService";
 import { AddForm } from "./components/AddForm";
+import Swal from "sweetalert2";
 
 function App() {
   // Book list state
   const [bookList, setBookList] = useState([]);
   // Id state
   const [id, setId] = useState(1);
+  // Add book state:
+  const [book, setBook] = useState({});
   // Show add form state
   const [showAddForm, setShowAddForm] = useState(false);
   // Effect for get list
@@ -37,7 +40,27 @@ function App() {
   };
   // To addForm
   const toAddForm = () => {
-    setShowAddForm(true);
+    setShowAddForm((prev) => !prev);
+  };
+
+  // Add book function
+  const addBook = async (title, quantity) => {
+    autoIncrement();
+    const newBook = {
+      id: id,
+      title: title,
+      quantity: quantity,
+    };
+    console.log(newBook);
+    const response = await bookService.addBook(newBook);
+    if (response.status === 201) {
+      Swal.fire({
+        title: response.statusText + " successfully",
+        timer: 1000,
+        icon: "success",
+      });
+    }
+    getAll();
   };
 
   return (
@@ -55,7 +78,7 @@ function App() {
           })}
         </tbody>
       </table>
-      {showAddForm && <AddForm></AddForm>}
+      {showAddForm && <AddForm addBook={addBook}></AddForm>}
     </>
   );
 }

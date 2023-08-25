@@ -8,3 +8,13 @@ export const getAll = async () => {
     console.log(error);
   }
 };
+
+export const addBook = async (book) => {
+  console.log(book);
+  try {
+    const response = await axios.post("http://localhost:3000/books", book);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

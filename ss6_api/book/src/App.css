@@ -17,6 +17,21 @@ body {
   border-radius: 5px;
 }
 
+.AddForm {
+  margin-top: 30px;
+  text-align: center;
+  width: 30%;
+  border: 1px solid black;
+  background-color: aliceblue;
+}
+
+.AddForm div {
+  margin-bottom: 10px;
+}
+.AddForm input {
+  width: 80%;
+}
+
 table,
 thead,
 th,
