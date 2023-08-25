@@ -1,27 +1,27 @@
 import React from "react";
 import { useState } from "react";
 
-export const AddForm = ({ addBook, cancelAdd }) => {
-  const [title, setTitle] = useState("");
-  const [quantity, setQuantity] = useState("");
-  console.log(title);
-  console.log(quantity);
+export const EditForm = ({ book, submitEdit, cancelEdit }) => {
+  const [title, setTitle] = useState(book.title);
+  const [quantity, setQuantity] = useState(book.quantity);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(quantity);
     if (title && quantity) {
-      addBook(title, quantity);
+      const id = book.id;
+      submitEdit(title, quantity, id);
       setTitle("");
       setQuantity("");
     }
   };
 
+  if (!book) {
+    return null;
+  }
   return (
     <>
       <div className="AddForm">
-        <h3>Add Book Form</h3>
+        <h3>Edit Book Form</h3>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="title">Title</label>
@@ -49,7 +49,7 @@ export const AddForm = ({ addBook, cancelAdd }) => {
           </div>
           <div>
             <button type="submit">Submit</button>
-            <button onClick={cancelAdd}>Cancel</button>
+            <button onClick={cancelEdit}>Cancel</button>
           </div>
         </form>
       </div>

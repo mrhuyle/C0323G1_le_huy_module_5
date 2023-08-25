@@ -27,3 +27,23 @@ export const deleteBook = async (id) => {
     console.log(error);
   }
 };
+
+export const getBookById = async (id) => {
+  try {
+    const response = await axios.get(`http://localhost:3000/books/${id}`);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const submitEdit = async (id, book) => {
+  try {
+    const response = await axios.put(`http://localhost:3000/books/${id}`, book);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

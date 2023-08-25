@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import * as bookService from "./services/BookService";
 import { AddForm } from "./components/AddForm";
 import Swal from "sweetalert2";
+import { EditForm } from "./components/EditForm";
 
 function App() {
   // Book list state
@@ -17,10 +18,12 @@ function App() {
   const [deleteId, setDeleteId] = useState(false);
   // Show add form state
   const [showAddForm, setShowAddForm] = useState(false);
+  // Show add form state
+  const [showEditForm, setShowEditForm] = useState(false);
   // Effect for get list
   useEffect(() => {
     getAll();
-  }, [book, deleteId]);
+  }, [book, deleteId, showEditForm]);
   // Effect for get recent max id
   useEffect(() => {
     const maxId = bookList.reduce(
@@ -62,13 +65,17 @@ function App() {
         icon: "success",
       });
     }
-    // getAll();
     setShowAddForm(false);
   };
 
   // Cancel add Form function
-  const cancel = () => {
+  const cancelAdd = () => {
     setShowAddForm(false);
+  };
+
+  // Cancel edit Form function
+  const cancelEdit = () => {
+    setShowEditForm(false);
   };
 
   // Delete function
@@ -94,6 +101,28 @@ function App() {
       }
     });
   };
+
+  //Show edit form
+  const editBook = async (id) => {
+    alert(id);
+    const response = await bookService.getBookById(id);
+    console.log(book);
+    setShowEditForm(true);
+    setBook(response);
+  };
+
+  // Submit edit:
+  const submitEdit = async (title, quantity, id) => {
+    alert("submit edit");
+    const editBook = {
+      title: title,
+      quantity: quantity,
+    };
+    const response = await bookService.submitEdit(id, editBook);
+    setShowEditForm(false);
+    console.log(response);
+  };
+
   return (
     <>
       <Header toAddForm={toAddForm}></Header>
@@ -106,12 +135,26 @@ function App() {
         <tbody>
           {bookList.map((book) => {
             return (
-              <Book key={book.id} book={book} deleteBook={deleteBook}></Book>
+              <Book
+                key={book.id}
+                book={book}
+                deleteBook={deleteBook}
+                editBook={editBook}
+              ></Book>
             );
           })}
         </tbody>
       </table>
-      {showAddForm && <AddForm addBook={addBook} cancel={cancel}></AddForm>}
+      {showAddForm && (
+        <AddForm addBook={addBook} cancelAdd={cancelAdd}></AddForm>
+      )}
+      {showEditForm && (
+        <EditForm
+          book={book}
+          cancelEdit={cancelEdit}
+          submitEdit={submitEdit}
+        ></EditForm>
+      )}
     </>
   );
 }
