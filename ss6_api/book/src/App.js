@@ -13,12 +13,14 @@ function App() {
   const [id, setId] = useState(1);
   // Add book state:
   const [book, setBook] = useState({});
+  // Delete state:
+  const [deleteId, setDeleteId] = useState(false);
   // Show add form state
   const [showAddForm, setShowAddForm] = useState(false);
   // Effect for get list
   useEffect(() => {
     getAll();
-  }, []);
+  }, [book, deleteId]);
   // Effect for get recent max id
   useEffect(() => {
     const maxId = bookList.reduce(
@@ -40,7 +42,7 @@ function App() {
   };
   // To addForm
   const toAddForm = () => {
-    setShowAddForm((prev) => !prev);
+    setShowAddForm((prev) => true);
   };
 
   // Add book function
@@ -51,7 +53,7 @@ function App() {
       title: title,
       quantity: quantity,
     };
-    console.log(newBook);
+
     const response = await bookService.addBook(newBook);
     if (response.status === 201) {
       Swal.fire({
@@ -60,9 +62,38 @@ function App() {
         icon: "success",
       });
     }
-    getAll();
+    // getAll();
+    setShowAddForm(false);
   };
 
+  // Cancel add Form function
+  const cancel = () => {
+    setShowAddForm(false);
+  };
+
+  // Delete function
+  const deleteBook = (id) => {
+    Swal.fire({
+      title: "Do you want to delete book with " + id,
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await bookService.deleteBook(id);
+        if (response.status === 200) {
+          Swal.fire({
+            title: "Delete " + response.statusText,
+            timer: 1000,
+            icon: "success",
+          });
+        }
+        setDeleteId((prev) => !prev);
+      } else {
+        Swal.fire("You choose to cancel delete book " + id);
+      }
+    });
+  };
   return (
     <>
       <Header toAddForm={toAddForm}></Header>
@@ -74,11 +105,13 @@ function App() {
         </thead>
         <tbody>
           {bookList.map((book) => {
-            return <Book key={book.id} book={book}></Book>;
+            return (
+              <Book key={book.id} book={book} deleteBook={deleteBook}></Book>
+            );
           })}
         </tbody>
       </table>
-      {showAddForm && <AddForm addBook={addBook}></AddForm>}
+      {showAddForm && <AddForm addBook={addBook} cancel={cancel}></AddForm>}
     </>
   );
 }

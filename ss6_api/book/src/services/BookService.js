@@ -18,3 +18,12 @@ export const addBook = async (book) => {
     console.log(error);
   }
 };
+
+export const deleteBook = async (id) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/books/${id}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

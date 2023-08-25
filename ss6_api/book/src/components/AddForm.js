@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export const AddForm = ({ addBook }) => {
+export const AddForm = ({ addBook, cancel }) => {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("");
   console.log(title);
@@ -49,6 +49,7 @@ export const AddForm = ({ addBook }) => {
           </div>
           <div>
             <button type="submit">Submit</button>
+            <button onClick={cancel}>Cancel</button>
           </div>
         </form>
       </div>
