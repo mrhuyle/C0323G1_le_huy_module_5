@@ -21,10 +21,7 @@ const NavBar = () => {
           <a href="#">Book</a>
         </li>
         <li class="link">
-          <a href="#">Blog</a>
-        </li>
-        <li class="link">
-          <a href="#">Contact Us</a>
+          <a href="#">Login</a>
         </li>
       </ul>
     </nav>
