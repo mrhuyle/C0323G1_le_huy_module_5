@@ -1,9 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { DELETE_USER } from "./redux/actions";
+import Swal from "sweetalert2";
 
 function App() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
+  const userDeleted = useSelector((state) => state.userDeleted);
 
   const loadAllUsers = () => {
     dispatch({ type: "GET_ALL_USERS" });
@@ -11,7 +14,22 @@ function App() {
 
   useEffect(() => {
     loadAllUsers();
-  }, []);
+  }, [userDeleted]);
+
+  const deleteUser = (userId) => {
+    Swal.fire({
+      title: "Do you want to delete user: " + userId,
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch({
+          type: DELETE_USER,
+          payload: userId,
+        });
+      }
+    });
+  };
 
   return (
     <>
@@ -22,6 +40,7 @@ function App() {
             <th>Name</th>
             <th>Email</th>
             <th>Website</th>
+            <th>Action</th>
           </thead>
           <tbody>
             {users.map((user) => (
@@ -30,6 +49,9 @@ function App() {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.website}</td>
+                <td>
+                  <button onClick={() => deleteUser(user.id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>

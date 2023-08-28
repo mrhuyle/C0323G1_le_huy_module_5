@@ -8,8 +8,14 @@
     },
     {
       "id": 2,
-      "name": "huyle",
-      "email": "huyl@gmail.com",
+      "name": "Louis2",
+      "email": "mrhuyle@gmail.com",
+      "website": "codegym.com"
+    },
+    {
+      "id": 3,
+      "name": "Louis3",
+      "email": "mrhuyle@gmail.com",
       "website": "codegym.com"
     }
   ]

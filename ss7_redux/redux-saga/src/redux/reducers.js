@@ -1,4 +1,4 @@
-import { DELETE_SUCESSS, FETCH_USERS_SUCCESS } from "./actions";
+import { DELETE_SUCCESS, FETCH_USERS_SUCCESS } from "./actions";
 
 const initialState = {
   users: [],
@@ -10,7 +10,7 @@ const rootReducer = (state = initialState, action) => {
   switch (type) {
     case FETCH_USERS_SUCCESS:
       return { ...state, users: payload };
-    case DELETE_SUCESSS:
+    case DELETE_SUCCESS:
       return { ...state, userDeleted: payload };
     default:
       return state;
