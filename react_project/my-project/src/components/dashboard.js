@@ -4,6 +4,7 @@ import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser, AiOutlineHome } from "react-icons/ai";
 import { BiBed } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import ServicesList from "./ServicesList";
 
 const Dashboard = () => {
   const menus = [
@@ -15,9 +16,9 @@ const Dashboard = () => {
   return (
     <section className="flex gap-6">
       <div
-        className={`bg-[#5C8374] min-h-screen ${
-          open ? "w-72" : "w-20"
-        } duration-500 text-gray-100 px-4`}
+        className={`bg-green-800 min-h-screen ${
+          open ? "w-60" : "w-20"
+        } duration-1000 text-gray-100 px-4`}
       >
         <div className="flex flex-col gap-4 py-3">
           <HiMenuAlt3
@@ -47,7 +48,7 @@ const Dashboard = () => {
               <h2
                 className={`${
                   open && "hidden"
-                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit z-10`}
               >
                 {menu?.name}
               </h2>
@@ -62,7 +63,9 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <div className="m-3 text-xl font-semibold text-gray-900">CONTENT</div>
+      <div className="flex items-center justify-center w-full m-3 text-xl font-semibold text-gray-900">
+        <ServicesList />
+      </div>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { TEInput, TERipple } from "tw-elements-react";
-import "./login.css";
+import "./Login.css";
 
 const Login = () => {
   return (

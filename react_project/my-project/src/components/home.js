@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./header";
-import NavBar from "./nav_bar";
-import Footer from "./footer";
-import BookingsList from "./room";
+import Header from "./Header";
+import NavBar from "./Navbar";
+import Footer from "./Footer";
+import BookingsList from "./Rooms";
 const Home = () => {
   return (
     <>
