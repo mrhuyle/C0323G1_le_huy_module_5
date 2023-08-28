@@ -1,23 +1,41 @@
 import React from "react";
 import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import * as bookService from "../services/BookService.js";
+import Swal from "sweetalert2";
 
-export const EditForm = ({ book, submitEdit, cancelEdit }) => {
+export const EditForm = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  let book = location.state.book;
   const [title, setTitle] = useState(book.title);
   const [quantity, setQuantity] = useState(book.quantity);
+  const [bookId, setBookId] = useState(book.id);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (title && quantity) {
-      const id = book.id;
-      submitEdit(title, quantity, id);
-      setTitle("");
-      setQuantity("");
+      const editBook = {
+        title: title,
+        quantity: quantity,
+      };
+      const response = await bookService.submitEdit(bookId, editBook);
+      console.log(response);
+      if (response.status === 200) {
+        Swal.fire({
+          title: "Edit successfully",
+          icon: "success",
+          timer: 1000,
+        });
+      } else {
+        navigate("/edit");
+      }
+      navigate("/");
     }
+    setTitle("");
+    setQuantity("");
   };
 
-  if (!book) {
-    return null;
-  }
   return (
     <>
       <div className="AddForm">
@@ -49,7 +67,9 @@ export const EditForm = ({ book, submitEdit, cancelEdit }) => {
           </div>
           <div>
             <button type="submit">Submit</button>
-            <button onClick={cancelEdit}>Cancel</button>
+            <Link to={"/"}>
+              <button>Cancel</button>
+            </Link>
           </div>
         </form>
       </div>

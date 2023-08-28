@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Louis",
+      "email": "mrhuyle@gmail.com",
+      "website": "codegym.com"
+    },
+    {
+      "id": 2,
+      "name": "huyle",
+      "email": "huyl@gmail.com",
+      "website": "codegym.com"
+    }
+  ]
+}

@@ -1,20 +1,37 @@
 import React from "react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as bookService from "../services/BookService.js";
+import Swal from "sweetalert2";
 
-export const AddForm = ({ addBook, cancelAdd }) => {
+export const AddForm = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("");
   console.log(title);
   console.log(quantity);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(quantity);
+    const newBook = {
+      title: title,
+      quantity: quantity,
+    };
+
     if (title && quantity) {
-      addBook(title, quantity);
-      setTitle("");
-      setQuantity("");
+      const response = await bookService.addBook(newBook);
+      if (response.status === 201) {
+        Swal.fire({
+          title: response.statusText + " successfully",
+          timer: 1000,
+          icon: "success",
+        });
+        setTitle("");
+        setQuantity("");
+        navigate("/");
+      } else {
+        navigate("/add");
+      }
     }
   };
 
@@ -49,7 +66,9 @@ export const AddForm = ({ addBook, cancelAdd }) => {
           </div>
           <div>
             <button type="submit">Submit</button>
-            <button onClick={cancelAdd}>Cancel</button>
+            <Link to={"/"}>
+              <button>Cancel</button>
+            </Link>
           </div>
         </form>
       </div>

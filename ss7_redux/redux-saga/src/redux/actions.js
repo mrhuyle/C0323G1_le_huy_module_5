@@ -1,0 +1,4 @@
+export const GET_ALL_USERS = "GET_ALL_USERS";
+export const DELETE_USER = "DELETE_USER";
+export const FETCH_USERS_SUCCESS = "FETCH_USER_SUCCESS";
+export const DELETE_SUCESSS = "DELETE_SUCCESS";
