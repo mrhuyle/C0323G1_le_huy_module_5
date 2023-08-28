@@ -18,7 +18,7 @@ const NavBar = () => {
         <Link class="link" to={"/"}>
           Book
         </Link>
-        <Link class="link" to={"/dashboard"}>
+        <Link class="link" to={"/dashboard/services"}>
           Dashboard
         </Link>
         <Link class="link" to={"/login"}>

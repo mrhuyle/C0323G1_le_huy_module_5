@@ -1,6 +1,6 @@
 import React from "react";
 
-const ServicesList = () => {
+const CustomersList = () => {
   return (
     <div className="relative w-full -translate-x-1/2 shadow-md sm:rounded-lg left-1/2">
       <div className="flex items-center justify-between pb-2">
@@ -16,7 +16,7 @@ const ServicesList = () => {
             className="absolute top-0 right-0 w-10 mt-5 mr-4"
           ></button>
         </div>
-        <p className="text-2xl text-green-900 ">Services</p>
+        <p className="text-2xl text-green-900 ">Customers</p>
         <button className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-300 border-2 rounded hover:bg-green-700 hover:text-white">
           Add
         </button>
@@ -312,4 +312,4 @@ const ServicesList = () => {
     </div>
   );
 };
-export default ServicesList;
+export default CustomersList;

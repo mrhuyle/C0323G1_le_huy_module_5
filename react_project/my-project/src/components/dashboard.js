@@ -3,14 +3,13 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser, AiOutlineHome } from "react-icons/ai";
 import { BiBed } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import ServicesList from "./ServicesList";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   const menus = [
-    { name: "Services", link: "/", icon: BiBed },
-    { name: "Customers", link: "/", icon: AiOutlineUser },
-    { name: "Contacts", link: "/", icon: TbReportAnalytics },
+    { name: "Services", link: "/dashboard/services", icon: BiBed },
+    { name: "Customers", link: "/dashboard/customers", icon: AiOutlineUser },
+    { name: "Contacts", link: "/dashboard/contacts", icon: TbReportAnalytics },
   ];
   const [open, setOpen] = useState(true);
   return (
@@ -64,7 +63,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="flex items-center justify-center w-full m-3 text-xl font-semibold text-gray-900">
-        <ServicesList />
+        <Outlet />
       </div>
     </section>
   );
