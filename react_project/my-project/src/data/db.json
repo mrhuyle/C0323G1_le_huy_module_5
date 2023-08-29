@@ -1,0 +1,547 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Villa",
+      "area": 200,
+      "price": 1000,
+      "capacity": 10,
+      "type": "day",
+      "standard": "deluxe",
+      "description": "other",
+      "poolArea": 20,
+      "floors": 2
+    },
+    {
+      "id": 2,
+      "name": "House",
+      "area": 200,
+      "price": 1000,
+      "capacity": 10,
+      "type": "day",
+      "standard": "deluxe",
+      "description": "other",
+      "floors": 2
+    },
+    {
+      "id": 3,
+      "name": "Room",
+      "area": 200,
+      "price": 1000,
+      "capacity": 10,
+      "type": "day",
+      "otherService": "massage"
+    },
+    {
+      "id": 4,
+      "name": "Villa-Oceanview",
+      "area": 250,
+      "price": 1200,
+      "capacity": 12,
+      "type": "day",
+      "standard": "luxury",
+      "description": "oceanfront",
+      "poolArea": 30,
+      "floors": 3
+    },
+    {
+      "id": 5,
+      "name": "House-Garden",
+      "area": 180,
+      "price": 900,
+      "capacity": 8,
+      "type": "day",
+      "standard": "standard",
+      "description": "spacious garden",
+      "floors": 2
+    },
+    {
+      "id": 6,
+      "name": "Room-Cityview",
+      "area": 40,
+      "price": 200,
+      "capacity": 2,
+      "type": "day",
+      "otherService": "room service"
+    },
+    {
+      "id": 7,
+      "name": "Villa-Mountain",
+      "area": 300,
+      "price": 1500,
+      "capacity": 14,
+      "type": "month",
+      "standard": "premium",
+      "description": "surrounded by mountains",
+      "poolArea": 40,
+      "floors": 2
+    },
+    {
+      "id": 8,
+      "name": "House-Beachfront",
+      "area": 220,
+      "price": 1100,
+      "capacity": 10,
+      "type": "month",
+      "standard": "deluxe",
+      "description": "direct beach access",
+      "floors": 1
+    },
+    {
+      "id": 9,
+      "name": "Room-Suite",
+      "area": 60,
+      "price": 300,
+      "capacity": 3,
+      "type": "month",
+      "otherService": "mini bar"
+    },
+    {
+      "id": 10,
+      "name": "Villa-Lakeside",
+      "area": 280,
+      "price": 1400,
+      "capacity": 12,
+      "type": "year",
+      "standard": "luxury",
+      "description": "overlooking a lake",
+      "poolArea": 35,
+      "floors": 2
+    },
+    {
+      "id": 11,
+      "name": "House-Meadow",
+      "area": 190,
+      "price": 950,
+      "capacity": 9,
+      "type": "year",
+      "standard": "premium",
+      "description": "lush meadow surroundings",
+      "floors": 1
+    },
+    {
+      "id": 12,
+      "name": "Room-Penthouse",
+      "area": 75,
+      "price": 400,
+      "capacity": 4,
+      "type": "year",
+      "otherService": "concierge"
+    },
+    {
+      "id": 13,
+      "name": "Villa-Clifftop",
+      "area": 320,
+      "price": 1600,
+      "capacity": 14,
+      "type": "day",
+      "standard": "luxury",
+      "description": "on a scenic cliff",
+      "poolArea": 50,
+      "floors": 3
+    },
+    {
+      "id": 14,
+      "name": "House-Valley",
+      "area": 210,
+      "price": 1000,
+      "capacity": 10,
+      "type": "day",
+      "standard": "premium",
+      "description": "surrounded by lush valleys",
+      "floors": 2
+    },
+    {
+      "id": 15,
+      "name": "Room-Jacuzzi",
+      "area": 50,
+      "price": 250,
+      "capacity": 2,
+      "type": "day",
+      "otherService": "private jacuzzi"
+    },
+    {
+      "id": 16,
+      "name": "Villa-Riverside",
+      "area": 290,
+      "price": 1450,
+      "capacity": 12,
+      "type": "month",
+      "standard": "deluxe",
+      "description": "alongside a river",
+      "poolArea": 45,
+      "floors": 2
+    },
+    {
+      "id": 17,
+      "name": "House-Hillside",
+      "area": 230,
+      "price": 1150,
+      "capacity": 10,
+      "type": "month",
+      "standard": "standard",
+      "description": "on a gentle hill",
+      "floors": 1
+    },
+    {
+      "id": 18,
+      "name": "Room-Fireplace",
+      "area": 55,
+      "price": 280,
+      "capacity": 3,
+      "type": "month",
+      "otherService": "fireplace"
+    },
+    {
+      "id": 19,
+      "name": "Villa-Woodland",
+      "area": 310,
+      "price": 1550,
+      "capacity": 14,
+      "type": "year",
+      "standard": "premium",
+      "description": "set within a woodland",
+      "poolArea": 60,
+      "floors": 3
+    },
+    {
+      "id": 20,
+      "name": "Room-Jacuzzi",
+      "area": 50,
+      "price": 250,
+      "capacity": 2,
+      "type": "day",
+      "otherService": "private jacuzzi"
+    },
+    {
+      "id": 21,
+      "name": "Villa-Riverside",
+      "area": 290,
+      "price": 1450,
+      "capacity": 12,
+      "type": "month",
+      "standard": "deluxe",
+      "description": "alongside a river",
+      "poolArea": 45,
+      "floors": 2
+    },
+    {
+      "id": 22,
+      "name": "House-Hillside",
+      "area": 230,
+      "price": 1150,
+      "capacity": 10,
+      "type": "month",
+      "standard": "standard",
+      "description": "on a gentle hill",
+      "floors": 1
+    },
+    {
+      "id": 23,
+      "name": "Room-Fireplace",
+      "area": 55,
+      "price": 280,
+      "capacity": 3,
+      "type": "month",
+      "otherService": "fireplace"
+    },
+    {
+      "id": 24,
+      "name": "Villa-Woodland",
+      "area": 310,
+      "price": 1550,
+      "capacity": 14,
+      "type": "year",
+      "standard": "premium",
+      "description": "set within a woodland",
+      "poolArea": 60,
+      "floors": 3
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Louis Le",
+      "dob": "1989-06-20",
+      "gender": "male",
+      "identity": "201602059",
+      "phone": "0905169777",
+      "email": "mrhuyle@gmail.com",
+      "type": "Diamond",
+      "address": "Vietnam"
+    },
+    {
+      "id": 2,
+      "name": "Emily Chen",
+      "dob": "1995-02-15",
+      "gender": "female",
+      "identity": "199802035",
+      "phone": "1234567890",
+      "email": "emily@example.com",
+      "type": "Gold",
+      "address": "United States"
+    },
+    {
+      "id": 3,
+      "name": "Mikhail Ivanov",
+      "dob": "1982-11-10",
+      "gender": "male",
+      "identity": "198907121",
+      "phone": "9876543210",
+      "email": "mikhail@example.com",
+      "type": "Platinum",
+      "address": "Russia"
+    },
+    {
+      "id": 4,
+      "name": "Sophie Tremblay",
+      "dob": "1998-08-25",
+      "gender": "female",
+      "identity": "199501027",
+      "phone": "5551234567",
+      "email": "sophie@example.com",
+      "type": "Silver",
+      "address": "Canada"
+    },
+    {
+      "id": 5,
+      "name": "Juan Rodriguez",
+      "dob": "1987-04-03",
+      "gender": "male",
+      "identity": "200010184",
+      "phone": "7890123456",
+      "email": "juan@example.com",
+      "type": "Gold",
+      "address": "Mexico"
+    },
+    {
+      "id": 6,
+      "name": "Alicia Kim",
+      "dob": "1993-09-12",
+      "gender": "female",
+      "identity": "199401254",
+      "phone": "3216549870",
+      "email": "alicia@example.com",
+      "type": "Silver",
+      "address": "South Korea"
+    },
+    {
+      "id": 7,
+      "name": "Ahmed Abbas",
+      "dob": "1985-07-18",
+      "gender": "male",
+      "identity": "198803092",
+      "phone": "7778889999",
+      "email": "ahmed@example.com",
+      "type": "Gold",
+      "address": "Egypt"
+    },
+    {
+      "id": 8,
+      "name": "Isabella Silva",
+      "dob": "1991-01-30",
+      "gender": "female",
+      "identity": "199810103",
+      "phone": "2223334444",
+      "email": "isabella@example.com",
+      "type": "Diamond",
+      "address": "Brazil"
+    },
+    {
+      "id": 9,
+      "name": "Hiroshi Tanaka",
+      "dob": "1976-12-05",
+      "gender": "male",
+      "identity": "197501283",
+      "phone": "9998887777",
+      "email": "hiroshi@example.com",
+      "type": "Silver",
+      "address": "Japan"
+    },
+    {
+      "id": 10,
+      "name": "Lara Martinez",
+      "dob": "2000-03-17",
+      "gender": "female",
+      "identity": "200211062",
+      "phone": "4445556666",
+      "email": "lara@example.com",
+      "type": "Gold",
+      "address": "Spain"
+    },
+    {
+      "id": 11,
+      "name": "Michael Nguyen",
+      "dob": "1984-09-08",
+      "gender": "male",
+      "identity": "199803221",
+      "phone": "6667778888",
+      "email": "michael@example.com",
+      "type": "Silver",
+      "address": "Australia"
+    },
+    {
+      "id": 12,
+      "name": "Maria dos Santos",
+      "dob": "1992-06-14",
+      "gender": "female",
+      "identity": "199005122",
+      "phone": "1112223333",
+      "email": "maria@example.com",
+      "type": "Gold",
+      "address": "Portugal"
+    },
+    {
+      "id": 13,
+      "name": "Chen Wei",
+      "dob": "1988-04-28",
+      "gender": "male",
+      "identity": "198710011",
+      "phone": "3334445555",
+      "email": "chen@example.com",
+      "type": "Silver",
+      "address": "China"
+    },
+    {
+      "id": 14,
+      "name": "Anna Petrovna",
+      "dob": "1996-11-19",
+      "gender": "female",
+      "identity": "199912081",
+      "phone": "7777777777",
+      "email": "anna@example.com",
+      "type": "Diamond",
+      "address": "Russia"
+    },
+    {
+      "id": 15,
+      "name": "Carlos Fernandez",
+      "dob": "1983-07-02",
+      "gender": "male",
+      "identity": "198204173",
+      "phone": "8888888888",
+      "email": "carlos@example.com",
+      "type": "Gold",
+      "address": "Spain"
+    },
+    {
+      "id": 16,
+      "name": "Sophia Lee",
+      "dob": "1994-12-10",
+      "gender": "female",
+      "identity": "199708021",
+      "phone": "5556667777",
+      "email": "sophia@example.com",
+      "type": "Silver",
+      "address": "South Korea"
+    },
+    {
+      "id": 17,
+      "name": "Mohammed Hassan",
+      "dob": "1980-05-29",
+      "gender": "male",
+      "identity": "198607111",
+      "phone": "9999999999",
+      "email": "mohammed@example.com",
+      "type": "Gold",
+      "address": "Egypt"
+    },
+    {
+      "id": 18,
+      "name": "Juliana da Silva",
+      "dob": "1990-09-21",
+      "gender": "female",
+      "identity": "199811052",
+      "phone": "7777777777",
+      "email": "juliana@example.com",
+      "type": "Diamond",
+      "address": "Brazil"
+    },
+    {
+      "id": 19,
+      "name": "Kazuki Yamamoto",
+      "dob": "1986-02-08",
+      "gender": "male",
+      "identity": "198509251",
+      "phone": "8888888888",
+      "email": "kazuki@example.com",
+      "type": "Silver",
+      "address": "Japan"
+    },
+    {
+      "id": 20,
+      "name": "Emma Wilson",
+      "dob": "2002-07-15",
+      "gender": "female",
+      "identity": "200302184",
+      "phone": "4444444444",
+      "email": "emma@example.com",
+      "type": "Gold",
+      "address": "United States"
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "otherServices": [
+    {
+      "id": 1,
+      "name": "massage",
+      "unit": "time",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "karaoke",
+      "unit": "time",
+      "price": 100
+    },
+    {
+      "id": 3,
+      "name": "foods",
+      "unit": "time",
+      "price": 200
+    },
+    {
+      "id": 4,
+      "name": "drinks",
+      "unit": "time",
+      "price": 20
+    },
+    {
+      "id": 5,
+      "name": "car",
+      "unit": "time",
+      "price": 50
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "code": "C0001",
+      "startDate": "2023-01-01",
+      "endDate": "2023-10-01",
+      "deposit": 1000,
+      "total": 5000
+    }
+  ]
+}

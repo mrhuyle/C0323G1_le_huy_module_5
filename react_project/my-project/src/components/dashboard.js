@@ -17,7 +17,7 @@ const Dashboard = () => {
       <div
         className={`bg-green-800 min-h-screen ${
           open ? "w-60" : "w-20"
-        } duration-1000 text-gray-100 px-4`}
+        } duration-500 text-gray-100 px-4`}
       >
         <div className="flex flex-col gap-4 py-3">
           <HiMenuAlt3
@@ -47,14 +47,14 @@ const Dashboard = () => {
               <h2
                 className={`${
                   open && "hidden"
-                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit z-10`}
+                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-500 group-hover:w-fit z-10`}
               >
                 {menu?.name}
               </h2>
             </Link>
           ))}
         </div>
-        <div className="flex py-3">
+        <div className="flex py-3 mt-5">
           <AiOutlineHome
             size={`${open ? "30" : "30"}`}
             className="cursor-pointer"
@@ -62,7 +62,7 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <div className="flex items-center justify-center w-full m-3 text-xl font-semibold text-gray-900">
+      <div className="flex justify-center w-full m-3 text-xl font-semibold text-gray-900">
         <Outlet />
       </div>
     </section>
