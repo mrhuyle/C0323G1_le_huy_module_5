@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import * as rentService from "../services/RentService";
 import { BsSearch } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const ServicesList = () => {
   const [serviceList, setServiceList] = useState([]);
   const [totalUnits, setTotalUnits] = useState(0);
   const [page, setPage] = useState(1);
   const [searchName, setSearchName] = useState("");
+  const [refreshPage, setRefreshPage] = useState(true);
   useEffect(() => {
     getServiceList();
     getTotalServices();
-  }, []);
+  }, [refreshPage]);
 
   const getServiceList = async () => {
     const list = await rentService.getAll("", 1);
@@ -41,17 +43,37 @@ const ServicesList = () => {
 
   const handleEnter = async (event) => {
     if (event.key === `Enter`) {
-      alert(searchName);
       const list = await rentService.getAll(searchName, 1);
       const listAll = await rentService.getAll(searchName);
-      alert(listAll.length);
+      if (listAll.length != 0) {
+        setPage(1);
+        setTotalUnits(listAll.length);
+        setServiceList(list);
+      } else {
+        setSearchName("");
+        Swal.fire({
+          text: "Do not find any record with search string: " + searchName,
+          icon: "warning",
+        });
+        setRefreshPage((prev) => !prev);
+      }
+    }
+  };
+  const handleClickSearch = async () => {
+    const list = await rentService.getAll(searchName, 1);
+    const listAll = await rentService.getAll(searchName);
+    if (listAll.length != 0) {
       setPage(1);
       setTotalUnits(listAll.length);
       setServiceList(list);
+    } else {
+      setSearchName("");
+      Swal.fire({
+        text: "Do not find any record with search string: " + searchName,
+        icon: "warning",
+      });
+      setRefreshPage((prev) => !prev);
     }
-  };
-  const handleClickSearch = () => {
-    alert(searchName);
   };
 
   return (
@@ -147,7 +169,7 @@ const ServicesList = () => {
         className="absolute flex items-center justify-between w-full pb-2 bottom-1"
         aria-label="Table navigation"
       >
-        <span className="flex gap-2 ml-2 ml-6 text-sm font-normal text-gray-900 dark:text-gray-900">
+        <span className="flex gap-2 ml-6 text-sm font-normal text-gray-900 dark:text-gray-900">
           <span className="font-semibold text-gray-900 dark:text-gray-900">
             {(page - 1) * 10 + 1} -{" "}
             {10 > serviceList.length

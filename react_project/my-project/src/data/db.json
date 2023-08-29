@@ -478,6 +478,336 @@
       "email": "emma@example.com",
       "type": "Gold",
       "address": "United States"
+    },
+    {
+      "id": 21,
+      "name": "Emily Smith",
+      "dob": "1995-03-15",
+      "gender": "female",
+      "identity": "199804072",
+      "phone": "1234567890",
+      "email": "emily@example.com",
+      "type": "Gold",
+      "address": "United States"
+    },
+    {
+      "id": 22,
+      "name": "Mikhail Petrov",
+      "dob": "1981-11-10",
+      "gender": "male",
+      "identity": "198905221",
+      "phone": "9876543210",
+      "email": "mikhail@example.com",
+      "type": "Platinum",
+      "address": "Russia"
+    },
+    {
+      "id": 23,
+      "name": "Sophia Tremblay",
+      "dob": "1999-08-25",
+      "gender": "female",
+      "identity": "199512016",
+      "phone": "5551234567",
+      "email": "sophia@example.com",
+      "type": "Silver",
+      "address": "Canada"
+    },
+    {
+      "id": 24,
+      "name": "Juan Rodriguez",
+      "dob": "1986-04-03",
+      "gender": "male",
+      "identity": "200009203",
+      "phone": "7890123456",
+      "email": "juan@example.com",
+      "type": "Gold",
+      "address": "Mexico"
+    },
+    {
+      "id": 25,
+      "name": "Alicia Kim",
+      "dob": "1992-09-12",
+      "gender": "female",
+      "identity": "199406081",
+      "phone": "3216549870",
+      "email": "alicia@example.com",
+      "type": "Silver",
+      "address": "South Korea"
+    },
+    {
+      "id": 26,
+      "name": "Ahmed Abbas",
+      "dob": "1988-07-18",
+      "gender": "male",
+      "identity": "198801154",
+      "phone": "7778889999",
+      "email": "ahmed@example.com",
+      "type": "Gold",
+      "address": "Egypt"
+    },
+    {
+      "id": 27,
+      "name": "Isabella Silva",
+      "dob": "1994-01-30",
+      "gender": "female",
+      "identity": "199805123",
+      "phone": "2223334444",
+      "email": "isabella@example.com",
+      "type": "Diamond",
+      "address": "Brazil"
+    },
+    {
+      "id": 28,
+      "name": "Hiroshi Tanaka",
+      "dob": "1978-12-05",
+      "gender": "male",
+      "identity": "197705201",
+      "phone": "9998887777",
+      "email": "hiroshi@example.com",
+      "type": "Silver",
+      "address": "Japan"
+    },
+    {
+      "id": 29,
+      "name": "Lara Martinez",
+      "dob": "2001-03-17",
+      "gender": "female",
+      "identity": "200302183",
+      "phone": "4445556666",
+      "email": "lara@example.com",
+      "type": "Gold",
+      "address": "Spain"
+    },
+    {
+      "id": 30,
+      "name": "Michael Nguyen",
+      "dob": "1985-09-08",
+      "gender": "male",
+      "identity": "199812031",
+      "phone": "6667778888",
+      "email": "michael@example.com",
+      "type": "Silver",
+      "address": "Australia"
+    },
+    {
+      "id": 31,
+      "name": "Maria dos Santos",
+      "dob": "1993-06-14",
+      "gender": "female",
+      "identity": "199207281",
+      "phone": "1112223333",
+      "email": "maria@example.com",
+      "type": "Gold",
+      "address": "Portugal"
+    },
+    {
+      "id": 32,
+      "name": "Chen Wei",
+      "dob": "1989-04-28",
+      "gender": "male",
+      "identity": "198812132",
+      "phone": "3334445555",
+      "email": "chen@example.com",
+      "type": "Silver",
+      "address": "China"
+    },
+    {
+      "id": 33,
+      "name": "Anna Petrovna",
+      "dob": "1997-11-19",
+      "gender": "female",
+      "identity": "200102083",
+      "phone": "7777777777",
+      "email": "anna@example.com",
+      "type": "Diamond",
+      "address": "Russia"
+    },
+    {
+      "id": 34,
+      "name": "Carlos Fernandez",
+      "dob": "1984-07-02",
+      "gender": "male",
+      "identity": "198308134",
+      "phone": "8888888888",
+      "email": "carlos@example.com",
+      "type": "Gold",
+      "address": "Spain"
+    },
+    {
+      "id": 35,
+      "name": "Sophia Lee",
+      "dob": "1991-12-10",
+      "gender": "female",
+      "identity": "199402152",
+      "phone": "5556667777",
+      "email": "sophia@example.com",
+      "type": "Silver",
+      "address": "South Korea"
+    },
+    {
+      "id": 36,
+      "name": "Mohammed Hassan",
+      "dob": "1982-05-29",
+      "gender": "male",
+      "identity": "198705231",
+      "phone": "9999999999",
+      "email": "mohammed@example.com",
+      "type": "Gold",
+      "address": "Egypt"
+    },
+    {
+      "id": 37,
+      "name": "Juliana da Silva",
+      "dob": "1992-09-21",
+      "gender": "female",
+      "identity": "199909072",
+      "phone": "7777777777",
+      "email": "juliana@example.com",
+      "type": "Diamond",
+      "address": "Brazil"
+    },
+    {
+      "id": 38,
+      "name": "Kazuki Yamamoto",
+      "dob": "1987-02-08",
+      "gender": "male",
+      "identity": "198406291",
+      "phone": "8888888888",
+      "email": "kazuki@example.com",
+      "type": "Silver",
+      "address": "Japan"
+    },
+    {
+      "id": 39,
+      "name": "Emma Wilson",
+      "dob": "2003-07-15",
+      "gender": "female",
+      "identity": "200505072",
+      "phone": "4444444444",
+      "email": "emma@example.com",
+      "type": "Gold",
+      "address": "United States"
+    },
+    {
+      "id": 40,
+      "name": "Luca Rossi",
+      "dob": "1988-10-20",
+      "gender": "male",
+      "identity": "198907041",
+      "phone": "1234567890",
+      "email": "luca@example.com",
+      "type": "Platinum",
+      "address": "Italy"
+    },
+    {
+      "id": 41,
+      "name": "Olivia Johnson",
+      "dob": "1994-02-05",
+      "gender": "female",
+      "identity": "199805032",
+      "phone": "5555555555",
+      "email": "olivia@example.com",
+      "type": "Silver",
+      "address": "Canada"
+    },
+    {
+      "id": 42,
+      "name": "Ahmad Al-Mansoori",
+      "dob": "1985-09-18",
+      "gender": "male",
+      "identity": "198704271",
+      "phone": "7777777777",
+      "email": "ahmad@example.com",
+      "type": "Gold",
+      "address": "United Arab Emirates"
+    },
+    {
+      "id": 43,
+      "name": "Sophie Martin",
+      "dob": "1998-06-23",
+      "gender": "female",
+      "identity": "199705112",
+      "phone": "6666666666",
+      "email": "sophie@example.com",
+      "type": "Silver",
+      "address": "France"
+    },
+    {
+      "id": 44,
+      "name": "Luis Hernandez",
+      "dob": "1983-11-08",
+      "gender": "male",
+      "identity": "198909151",
+      "phone": "4444444444",
+      "email": "luis@example.com",
+      "type": "Gold",
+      "address": "Mexico"
+    },
+    {
+      "id": 45,
+      "name": "Isabel Castro",
+      "dob": "1999-04-27",
+      "gender": "female",
+      "identity": "199907021",
+      "phone": "1234567890",
+      "email": "isabel@example.com",
+      "type": "Diamond",
+      "address": "Brazil"
+    },
+    {
+      "id": 46,
+      "name": "Ethan Williams",
+      "dob": "1987-08-15",
+      "gender": "male",
+      "identity": "198704271",
+      "phone": "5555555555",
+      "email": "ethan@example.com",
+      "type": "Gold",
+      "address": "United States"
+    },
+    {
+      "id": 47,
+      "name": "Aria Martinez",
+      "dob": "2002-01-30",
+      "gender": "female",
+      "identity": "200203152",
+      "phone": "6666666666",
+      "email": "aria@example.com",
+      "type": "Silver",
+      "address": "Spain"
+    },
+    {
+      "id": 48,
+      "name": "Muhammad Khan",
+      "dob": "1989-04-14",
+      "gender": "male",
+      "identity": "198710042",
+      "phone": "7777777777",
+      "email": "muhammad@example.com",
+      "type": "Gold",
+      "address": "Pakistan"
+    },
+    {
+      "id": 49,
+      "name": "Amelia White",
+      "dob": "1995-10-25",
+      "gender": "female",
+      "identity": "199806213",
+      "phone": "1234567890",
+      "email": "amelia@example.com",
+      "type": "Platinum",
+      "address": "United Kingdom"
+    },
+    {
+      "id": 50,
+      "name": "Omar Ahmed",
+      "dob": "1984-03-07",
+      "gender": "male",
+      "identity": "198703182",
+      "phone": "5555555555",
+      "email": "omar@example.com",
+      "type": "Gold",
+      "address": "Egypt"
     }
   ],
   "customerTypes": [
@@ -542,6 +872,398 @@
       "endDate": "2023-10-01",
       "deposit": 1000,
       "total": 5000
+    },
+    {
+      "id": 2,
+      "code": "C0002",
+      "startDate": "2023-02-15",
+      "endDate": "2023-08-15",
+      "deposit": 800,
+      "total": 4500
+    },
+    {
+      "id": 3,
+      "code": "C0003",
+      "startDate": "2023-04-10",
+      "endDate": "2023-11-10",
+      "deposit": 1200,
+      "total": 5500
+    },
+    {
+      "id": 4,
+      "code": "C0004",
+      "startDate": "2023-03-20",
+      "endDate": "2023-12-20",
+      "deposit": 1500,
+      "total": 6000
+    },
+    {
+      "id": 5,
+      "code": "C0005",
+      "startDate": "2023-06-05",
+      "endDate": "2023-09-05",
+      "deposit": 900,
+      "total": 4200
+    },
+    {
+      "id": 6,
+      "code": "C0006",
+      "startDate": "2023-07-12",
+      "endDate": "2023-12-12",
+      "deposit": 1100,
+      "total": 4800
+    },
+    {
+      "id": 7,
+      "code": "C0007",
+      "startDate": "2023-09-28",
+      "endDate": "2024-04-28",
+      "deposit": 1300,
+      "total": 5800
+    },
+    {
+      "id": 8,
+      "code": "C0008",
+      "startDate": "2023-11-03",
+      "endDate": "2024-06-03",
+      "deposit": 1000,
+      "total": 5200
+    },
+    {
+      "id": 9,
+      "code": "C0009",
+      "startDate": "2023-12-18",
+      "endDate": "2024-07-18",
+      "deposit": 950,
+      "total": 5100
+    },
+    {
+      "id": 10,
+      "code": "C0010",
+      "startDate": "2023-10-10",
+      "endDate": "2024-05-10",
+      "deposit": 1200,
+      "total": 5400
+    },
+    {
+      "id": 11,
+      "code": "C0011",
+      "startDate": "2023-02-01",
+      "endDate": "2023-09-01",
+      "deposit": 800,
+      "total": 4200
+    },
+    {
+      "id": 12,
+      "code": "C0012",
+      "startDate": "2023-04-15",
+      "endDate": "2023-11-15",
+      "deposit": 1000,
+      "total": 4900
+    },
+    {
+      "id": 13,
+      "code": "C0013",
+      "startDate": "2023-03-10",
+      "endDate": "2023-10-10",
+      "deposit": 1300,
+      "total": 5600
+    },
+    {
+      "id": 14,
+      "code": "C0014",
+      "startDate": "2023-05-20",
+      "endDate": "2023-12-20",
+      "deposit": 1100,
+      "total": 5300
+    },
+    {
+      "id": 15,
+      "code": "C0015",
+      "startDate": "2023-07-05",
+      "endDate": "2024-02-05",
+      "deposit": 1500,
+      "total": 5800
+    },
+    {
+      "id": 16,
+      "code": "C0016",
+      "startDate": "2023-09-12",
+      "endDate": "2024-04-12",
+      "deposit": 1000,
+      "total": 5500
+    },
+    {
+      "id": 17,
+      "code": "C0017",
+      "startDate": "2023-08-28",
+      "endDate": "2024-03-28",
+      "deposit": 1200,
+      "total": 5100
+    },
+    {
+      "id": 18,
+      "code": "C0018",
+      "startDate": "2023-11-03",
+      "endDate": "2024-06-03",
+      "deposit": 900,
+      "total": 4800
+    },
+    {
+      "id": 19,
+      "code": "C0019",
+      "startDate": "2023-10-18",
+      "endDate": "2024-05-18",
+      "deposit": 1100,
+      "total": 5300
+    },
+    {
+      "id": 20,
+      "code": "C0020",
+      "startDate": "2023-12-10",
+      "endDate": "2024-07-10",
+      "deposit": 1300,
+      "total": 5600
+    },
+    {
+      "id": 21,
+      "code": "C0021",
+      "startDate": "2023-01-15",
+      "endDate": "2023-08-15",
+      "deposit": 850,
+      "total": 4400
+    },
+    {
+      "id": 22,
+      "code": "C0022",
+      "startDate": "2023-03-10",
+      "endDate": "2023-10-10",
+      "deposit": 1200,
+      "total": 5000
+    },
+    {
+      "id": 23,
+      "code": "C0023",
+      "startDate": "2023-02-20",
+      "endDate": "2023-09-20",
+      "deposit": 950,
+      "total": 4600
+    },
+    {
+      "id": 24,
+      "code": "C0024",
+      "startDate": "2023-05-05",
+      "endDate": "2023-12-05",
+      "deposit": 1100,
+      "total": 5100
+    },
+    {
+      "id": 25,
+      "code": "C0025",
+      "startDate": "2023-07-12",
+      "endDate": "2024-02-12",
+      "deposit": 1300,
+      "total": 5600
+    },
+    {
+      "id": 26,
+      "code": "C0026",
+      "startDate": "2023-06-28",
+      "endDate": "2023-12-28",
+      "deposit": 1000,
+      "total": 4800
+    },
+    {
+      "id": 27,
+      "code": "C0027",
+      "startDate": "2023-09-03",
+      "endDate": "2024-04-03",
+      "deposit": 1200,
+      "total": 5300
+    },
+    {
+      "id": 28,
+      "code": "C0028",
+      "startDate": "2023-11-18",
+      "endDate": "2024-06-18",
+      "deposit": 1000,
+      "total": 5200
+    },
+    {
+      "id": 29,
+      "code": "C0029",
+      "startDate": "2023-10-10",
+      "endDate": "2024-05-10",
+      "deposit": 1300,
+      "total": 5800
+    },
+    {
+      "id": 30,
+      "code": "C0030",
+      "startDate": "2023-12-25",
+      "endDate": "2024-07-25",
+      "deposit": 1100,
+      "total": 5500
+    },
+    {
+      "id": 31,
+      "code": "C0031",
+      "startDate": "2023-02-05",
+      "endDate": "2023-09-05",
+      "deposit": 900,
+      "total": 4400
+    },
+    {
+      "id": 32,
+      "code": "C0032",
+      "startDate": "2023-04-15",
+      "endDate": "2023-11-15",
+      "deposit": 1100,
+      "total": 4800
+    },
+    {
+      "id": 33,
+      "code": "C0033",
+      "startDate": "2023-03-10",
+      "endDate": "2023-10-10",
+      "deposit": 1400,
+      "total": 5500
+    },
+    {
+      "id": 34,
+      "code": "C0034",
+      "startDate": "2023-05-20",
+      "endDate": "2023-12-20",
+      "deposit": 1000,
+      "total": 5100
+    },
+    {
+      "id": 35,
+      "code": "C0035",
+      "startDate": "2023-08-05",
+      "endDate": "2024-03-05",
+      "deposit": 1300,
+      "total": 5700
+    },
+    {
+      "id": 36,
+      "code": "C0036",
+      "startDate": "2023-06-12",
+      "endDate": "2023-12-12",
+      "deposit": 950,
+      "total": 4600
+    },
+    {
+      "id": 37,
+      "code": "C0037",
+      "startDate": "2023-09-28",
+      "endDate": "2024-04-28",
+      "deposit": 1200,
+      "total": 5200
+    },
+    {
+      "id": 38,
+      "code": "C0038",
+      "startDate": "2023-11-03",
+      "endDate": "2024-06-03",
+      "deposit": 1000,
+      "total": 5100
+    },
+    {
+      "id": 39,
+      "code": "C0039",
+      "startDate": "2023-10-18",
+      "endDate": "2024-05-18",
+      "deposit": 1400,
+      "total": 5600
+    },
+    {
+      "id": 40,
+      "code": "C0040",
+      "startDate": "2023-12-10",
+      "endDate": "2024-07-10",
+      "deposit": 1200,
+      "total": 5300
+    },
+    {
+      "id": 41,
+      "code": "C0041",
+      "startDate": "2023-02-01",
+      "endDate": "2023-09-01",
+      "deposit": 900,
+      "total": 4600
+    },
+    {
+      "id": 42,
+      "code": "C0042",
+      "startDate": "2023-04-15",
+      "endDate": "2023-11-15",
+      "deposit": 1100,
+      "total": 4900
+    },
+    {
+      "id": 43,
+      "code": "C0043",
+      "startDate": "2023-03-10",
+      "endDate": "2023-10-10",
+      "deposit": 1300,
+      "total": 5400
+    },
+    {
+      "id": 44,
+      "code": "C0044",
+      "startDate": "2023-05-20",
+      "endDate": "2023-12-20",
+      "deposit": 1000,
+      "total": 5000
+    },
+    {
+      "id": 45,
+      "code": "C0045",
+      "startDate": "2023-08-05",
+      "endDate": "2024-03-05",
+      "deposit": 1200,
+      "total": 5500
+    },
+    {
+      "id": 46,
+      "code": "C0046",
+      "startDate": "2023-06-12",
+      "endDate": "2023-12-12",
+      "deposit": 950,
+      "total": 4700
+    },
+    {
+      "id": 47,
+      "code": "C0047",
+      "startDate": "2023-09-28",
+      "endDate": "2024-04-28",
+      "deposit": 1300,
+      "total": 5400
+    },
+    {
+      "id": 48,
+      "code": "C0048",
+      "startDate": "2023-11-03",
+      "endDate": "2024-06-03",
+      "deposit": 1000,
+      "total": 5200
+    },
+    {
+      "id": 49,
+      "code": "C0049",
+      "startDate": "2023-10-18",
+      "endDate": "2024-05-18",
+      "deposit": 1200,
+      "total": 5500
+    },
+    {
+      "id": 50,
+      "code": "C0050",
+      "startDate": "2023-12-10",
+      "endDate": "2024-07-10",
+      "deposit": 1400,
+      "total": 5900
     }
   ]
 }

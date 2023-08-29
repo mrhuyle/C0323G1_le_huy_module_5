@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import * as customerService from "../services/CutomerService";
+import * as contractService from "../services/ContractService";
 import Swal from "sweetalert2";
 import { BsSearch } from "react-icons/bs";
 
-const CustomersList = () => {
-  const [customerList, setCustomerList] = useState([]);
+const ContractsList = () => {
+  const [contractList, setContractList] = useState([]);
   const [totalUnits, setTotalUnits] = useState(0);
   const [page, setPage] = useState(1);
   const [searchName, setSearchName] = useState("");
@@ -16,40 +16,40 @@ const CustomersList = () => {
   }, [refreshPage]);
 
   const getList = async () => {
-    const list = await customerService.getAll("", 1);
+    const list = await contractService.getAll("", 1);
     console.log(list);
-    setCustomerList(list);
+    setContractList(list);
   };
 
   const getTotal = async () => {
-    const list = await customerService.getAll();
+    const list = await contractService.getAll();
     const totalUnits = list.length;
     setTotalUnits(totalUnits);
   };
 
   const nextPage = async () => {
-    const list = await customerService.getAll(searchName, page + 1);
+    const list = await contractService.getAll(searchName, page + 1);
     console.log(page);
     console.log(list);
     setPage((prev) => prev + 1);
-    setCustomerList(list);
+    setContractList(list);
   };
 
   const previousPage = async () => {
-    const list = await customerService.getAll(searchName, page - 1);
+    const list = await contractService.getAll(searchName, page - 1);
     console.log(list);
     setPage((prev) => prev - 1);
-    setCustomerList(list);
+    setContractList(list);
   };
 
   const handleEnter = async (event) => {
     if (event.key === `Enter`) {
-      const list = await customerService.getAll(searchName, 1);
-      const listAll = await customerService.getAll(searchName);
-      if (listAll.length != 0) {
+      const list = await contractService.getAll(searchName, 1);
+      const listAll = await contractService.getAll(searchName);
+      if (listAll.length !== 0) {
         setPage(1);
         setTotalUnits(listAll.length);
-        setCustomerList(list);
+        setContractList(list);
       } else {
         setSearchName("");
         Swal.fire({
@@ -61,12 +61,12 @@ const CustomersList = () => {
     }
   };
   const handleClickSearch = async () => {
-    const list = await customerService.getAll(searchName, 1);
-    const listAll = await customerService.getAll(searchName);
-    if (listAll.length != 0) {
+    const list = await contractService.getAll(searchName, 1);
+    const listAll = await contractService.getAll(searchName);
+    if (listAll.length !== 0) {
       setPage(1);
       setTotalUnits(listAll.length);
-      setCustomerList(list);
+      setContractList(list);
     } else {
       setSearchName("");
       Swal.fire({
@@ -97,7 +97,7 @@ const CustomersList = () => {
             />
           </div>
         </div>
-        <p className="text-2xl text-green-900 ">Customers</p>
+        <p className="text-2xl text-green-900 ">Contracts</p>
         <button className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white">
           Add
         </button>
@@ -106,48 +106,44 @@ const CustomersList = () => {
       <table className="w-full text-sm text-left text-gray-800 rounded dark:text-gray-400">
         <thead className="text-sm text-white uppercase bg-gray-50 dark:bg-green-800 dark:text-gray-400">
           <tr>
-            <th scope="col" className="px-2 py-3">
-              Name
+            <th scope="col" className="px-6 py-3">
+              Code
             </th>
-            <th scope="col" className="px-2 py-3">
-              DOB
+            <th scope="col" className="px-6 py-3">
+              Start Date
             </th>
-            <th scope="col" className="px-2 py-3">
-              Identity
+            <th scope="col" className="px-6 py-3">
+              End Date
             </th>
-            <th scope="col" className="px-2 py-3">
-              Phone
+            <th scope="col" className="px-6 py-3">
+              Deposit
             </th>
-            <th scope="col" className="px-2 py-3">
-              Email
+            <th scope="col" className="px-6 py-3">
+              Total
             </th>
-            <th scope="col" className="px-2 py-3">
-              Type
-            </th>
-            <th scope="col" className="px-2 py-3 text-center">
+            <th scope="col" className="px-6 py-3 text-center">
               Actions
             </th>
           </tr>
         </thead>
         <tbody>
-          {customerList.map((customer) => {
+          {contractList.map((contract) => {
             return (
               <tr
-                key={customer.id}
+                key={contract.id}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-green-100"
               >
                 <th
                   scope="row"
                   className="px-6 py-3 font-semibold text-gray-800 whitespace-nowrap dark:text-gray-400"
                 >
-                  {customer.name}
+                  {contract.code}
                 </th>
-                <td className="px-2 py-3 min-w-max">{customer.dob}</td>
-                <td className="px-2 py-3">{customer.identity}</td>
-                <td className="px-2 py-3">{customer.phone}</td>
-                <td className="px-2 py-3">{customer.email}</td>
-                <td className="px-2 py-3">{customer.type}</td>
-                <td className="flex items-center justify-around gap-4 px-2 py-3">
+                <td className="px-6 py-3">{contract.startDate}</td>
+                <td className="px-6 py-3">{contract.endDate}</td>
+                <td className="px-6 py-3">{contract.deposit + " $"}</td>
+                <td className="px-6 py-3">{contract.total + " $"}</td>
+                <td className="flex items-center justify-around gap-4 px-6 py-3">
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-green-800 border border-green-800 rounded-lg hover:text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
@@ -173,8 +169,8 @@ const CustomersList = () => {
         <span className="flex gap-2 ml-6 text-sm font-normal text-gray-900 dark:text-gray-900">
           <span className="font-semibold text-gray-900 dark:text-gray-900">
             {(page - 1) * 10 + 1} -{" "}
-            {10 > customerList.length
-              ? (page - 1) * 10 + customerList.length
+            {10 > contractList.length
+              ? (page - 1) * 10 + contractList.length
               : (page - 1) * 10 + 10}
           </span>
           of
@@ -206,4 +202,4 @@ const CustomersList = () => {
     </div>
   );
 };
-export default CustomersList;
+export default ContractsList;

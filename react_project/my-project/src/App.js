@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import ServicesList from "./components/ServicesList";
 import CustomersList from "./components/CustomersList";
-import ContactsList from "./components/ContactsList";
+import ContractsList from "./components/ContractsList";
 
 function App() {
   return (
@@ -19,7 +19,10 @@ function App() {
             path="/dashboard/customers"
             element={<CustomersList />}
           ></Route>
-          <Route path="/dashboard/contacts" element={<ContactsList />}></Route>
+          <Route
+            path="/dashboard/contracts"
+            element={<ContractsList />}
+          ></Route>
         </Route>
       </Routes>
     </div>

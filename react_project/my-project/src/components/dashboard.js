@@ -9,7 +9,11 @@ const Dashboard = () => {
   const menus = [
     { name: "Services", link: "/dashboard/services", icon: BiBed },
     { name: "Customers", link: "/dashboard/customers", icon: AiOutlineUser },
-    { name: "Contacts", link: "/dashboard/contacts", icon: TbReportAnalytics },
+    {
+      name: "Contracts",
+      link: "/dashboard/contracts",
+      icon: TbReportAnalytics,
+    },
   ];
   const [open, setOpen] = useState(true);
   return (
