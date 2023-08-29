@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import ServicesList from "./components/ServicesList";
 import CustomersList from "./components/CustomersList";
 import ContractsList from "./components/ContractsList";
+import AddService from "./components/AddService";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             path="/dashboard/contracts"
             element={<ContractsList />}
           ></Route>
+          <Route path="/dashboard/add_service" element={<AddService />}></Route>
         </Route>
       </Routes>
     </div>

@@ -138,7 +138,7 @@ const CustomersList = () => {
               >
                 <th
                   scope="row"
-                  className="px-6 py-3 font-semibold text-gray-800 whitespace-nowrap dark:text-gray-400"
+                  className="px-2 py-3 font-semibold text-gray-800 whitespace-nowrap dark:text-gray-400"
                 >
                   {customer.name}
                 </th>

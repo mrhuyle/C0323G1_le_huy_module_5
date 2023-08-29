@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as rentService from "../services/RentService";
 import { BsSearch } from "react-icons/bs";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ServicesList = () => {
   const [serviceList, setServiceList] = useState([]);
@@ -98,9 +99,12 @@ const ServicesList = () => {
           </div>
         </div>
         <p className="text-2xl text-green-900 ">Services</p>
-        <button className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white">
+        <Link
+          to="/dashboard/add_service"
+          className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white"
+        >
           Add
-        </button>
+        </Link>
       </div>
 
       <table className="w-full text-sm text-left text-gray-800 rounded dark:text-gray-400">
