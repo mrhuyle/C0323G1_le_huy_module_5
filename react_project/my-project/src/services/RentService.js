@@ -7,6 +7,9 @@ export const getAll = async (name, page) => {
     let response = null;
     if (name == null && page == null) {
       response = await axios.get(`${baseURL}`);
+    } else if (page == null) {
+      console.log("here");
+      response = await axios.get(`${baseURL}?name_like=${name}`);
     } else {
       response = await axios.get(`${baseURL}?_page=${page}&name_like=${name}`);
     }
