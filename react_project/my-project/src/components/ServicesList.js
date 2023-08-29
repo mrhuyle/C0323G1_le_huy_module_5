@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as rentService from "../services/RentService";
+import { BsSearch } from "react-icons/bs";
 
 const ServicesList = () => {
   const [serviceList, setServiceList] = useState([]);
@@ -47,9 +48,10 @@ const ServicesList = () => {
             name="search"
             placeholder="Search"
           />
+          <BsSearch />
           <button
             type="submit"
-            className="absolute top-0 right-0 w-10 mt-5 mr-4"
+            className="absolute top-0 right-0 w-10 mt-5 mr-4 cursor-pointer"
           ></button>
         </div>
         <p className="text-2xl text-green-900 ">Services</p>
