@@ -224,38 +224,6 @@
       "description": "alongside a river",
       "poolArea": 45,
       "floors": 2
-    },
-    {
-      "id": 22,
-      "name": "House-Hillside",
-      "area": 230,
-      "price": 1150,
-      "capacity": 10,
-      "type": "month",
-      "standard": "standard",
-      "description": "on a gentle hill",
-      "floors": 1
-    },
-    {
-      "id": 23,
-      "name": "Room-Fireplace",
-      "area": 55,
-      "price": 280,
-      "capacity": 3,
-      "type": "month",
-      "otherService": "fireplace"
-    },
-    {
-      "id": 24,
-      "name": "Villa-Woodland",
-      "area": 310,
-      "price": 1550,
-      "capacity": 14,
-      "type": "year",
-      "standard": "premium",
-      "description": "set within a woodland",
-      "poolArea": 60,
-      "floors": 3
     }
   ],
   "customers": [

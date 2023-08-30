@@ -66,7 +66,7 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center w-full m-3 text-xl font-semibold text-gray-900">
+      <div className="flex justify-center w-full pt-8 m-3 text-xl font-semibold text-gray-900">
         <Outlet />
       </div>
     </section>

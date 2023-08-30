@@ -19,6 +19,7 @@ const ServicesList = () => {
     const list = await rentService.getAll("", 1);
     console.log(list);
     setServiceList(list);
+    setPage(1);
   };
 
   const getTotalServices = async () => {
@@ -40,6 +41,35 @@ const ServicesList = () => {
     console.log(list);
     setPage((prev) => prev - 1);
     setServiceList(list);
+  };
+
+  const deleteObject = (service) => {
+    Swal.fire({
+      title: "Delete Confirmation",
+      text: "Do you want to delete: " + service.id,
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonText: "Yes, delete it",
+      icon: "question",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await rentService.deleteObject(service);
+        if (response.status === 200) {
+          Swal.fire({
+            text: "Delete successfully " + service.name,
+            icon: "success",
+            timer: 1500,
+          });
+          setRefreshPage((prev) => !prev);
+        } else {
+          Swal.fire({
+            text: "You choose cancel ",
+            icon: "warning",
+            timer: 1500,
+          });
+        }
+      }
+    });
   };
 
   const handleEnter = async (event) => {
@@ -160,6 +190,7 @@ const ServicesList = () => {
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-red-700 border border-red-700 rounded-lg hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                    onClick={() => deleteObject(service)}
                   >
                     Delete
                   </button>
