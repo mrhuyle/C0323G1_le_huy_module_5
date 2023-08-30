@@ -24,15 +24,6 @@
       "floors": 2
     },
     {
-      "id": 3,
-      "name": "Room",
-      "area": 200,
-      "price": 1000,
-      "capacity": 10,
-      "type": "day",
-      "otherService": "massage"
-    },
-    {
       "id": 4,
       "name": "Villa-Oceanview",
       "area": 250,
