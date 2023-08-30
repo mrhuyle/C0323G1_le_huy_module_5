@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import VillaForm from "./VillaForm";
+import HouseForm from "./HouseForm";
+import RoomForm from "./RoomForm";
 
 const AddService = () => {
   const [serviceType] = useState([
@@ -11,12 +13,12 @@ const AddService = () => {
     {
       label: "House",
       value: "House",
-      field: <div>House</div>,
+      field: <HouseForm />,
     },
     {
       label: "Room",
       value: "Room",
-      field: <div>Room</div>,
+      field: <RoomForm />,
     },
   ]);
   const [selectedServiceType, setSelectedServiceType] = useState(
