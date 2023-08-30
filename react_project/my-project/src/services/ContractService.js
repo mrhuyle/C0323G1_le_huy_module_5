@@ -29,3 +29,31 @@ export const deleteObject = async (object) => {
     console.log(error);
   }
 };
+
+export const addContract = async (contract) => {
+  try {
+    const response = await axios.post(`${baseURL}`, contract);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getContractById = async (id) => {
+  try {
+    const response = await axios.get(`${baseURL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editContract = async (contract) => {
+  try {
+    const response = await axios.put(`${baseURL}/${contract.id}`, contract);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

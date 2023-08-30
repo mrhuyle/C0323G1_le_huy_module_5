@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import * as contractService from "../services/ContractService";
 import Swal from "sweetalert2";
 import { BsSearch } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
 
 const ContractsList = () => {
+  const navigate = useNavigate();
   const [contractList, setContractList] = useState([]);
   const [totalUnits, setTotalUnits] = useState(0);
   const [page, setPage] = useState(1);
@@ -128,9 +130,12 @@ const ContractsList = () => {
           </div>
         </div>
         <p className="text-2xl text-green-900 ">Contracts</p>
-        <button className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white">
+        <Link
+          to="/dashboard/add_contract"
+          className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white"
+        >
           Add
-        </button>
+        </Link>
       </div>
 
       <table className="w-full text-sm text-left text-gray-800 rounded dark:text-gray-400">
@@ -177,6 +182,9 @@ const ContractsList = () => {
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-green-800 border border-green-800 rounded-lg hover:text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    onClick={() => {
+                      navigate(`/dashboard/edit/${contract.id}`);
+                    }}
                   >
                     Edit
                   </button>

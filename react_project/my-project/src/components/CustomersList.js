@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import * as customerService from "../services/CustomerService";
 import Swal from "sweetalert2";
 import { BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const CustomersList = () => {
   const [customerList, setCustomerList] = useState([]);
@@ -128,9 +129,12 @@ const CustomersList = () => {
           </div>
         </div>
         <p className="text-2xl text-green-900 ">Customers</p>
-        <button className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white">
+        <Link
+          to="/dashboard/add_customer"
+          className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white"
+        >
           Add
-        </button>
+        </Link>
       </div>
 
       <table className="w-full text-sm text-left text-gray-800 rounded dark:text-gray-400">
