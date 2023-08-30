@@ -18,3 +18,14 @@ export const getAll = async (code, page) => {
     console.log(error);
   }
 };
+
+export const deleteObject = async (object) => {
+  try {
+    const id = object.id;
+    const response = await axios.delete(`${baseURL}/${id}`);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

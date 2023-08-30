@@ -43,7 +43,7 @@ const ServicesList = () => {
     setServiceList(list);
   };
 
-  const deleteObject = (service) => {
+  const deleteService = (service) => {
     Swal.fire({
       title: "Delete Confirmation",
       text: "Do you want to delete: " + service.id,
@@ -190,7 +190,7 @@ const ServicesList = () => {
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-red-700 border border-red-700 rounded-lg hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
-                    onClick={() => deleteObject(service)}
+                    onClick={() => deleteService(service)}
                   >
                     Delete
                   </button>

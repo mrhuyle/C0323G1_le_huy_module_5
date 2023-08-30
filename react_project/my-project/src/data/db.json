@@ -212,18 +212,6 @@
       "capacity": 2,
       "type": "day",
       "otherService": "private jacuzzi"
-    },
-    {
-      "id": 21,
-      "name": "Villa-Riverside",
-      "area": 290,
-      "price": 1450,
-      "capacity": 12,
-      "type": "month",
-      "standard": "deluxe",
-      "description": "alongside a river",
-      "poolArea": 45,
-      "floors": 2
     }
   ],
   "customers": [
@@ -754,28 +742,6 @@
       "email": "muhammad@example.com",
       "type": "Gold",
       "address": "Pakistan"
-    },
-    {
-      "id": 49,
-      "name": "Amelia White",
-      "dob": "1995-10-25",
-      "gender": "female",
-      "identity": "199806213",
-      "phone": "1234567890",
-      "email": "amelia@example.com",
-      "type": "Platinum",
-      "address": "United Kingdom"
-    },
-    {
-      "id": 50,
-      "name": "Omar Ahmed",
-      "dob": "1984-03-07",
-      "gender": "male",
-      "identity": "198703182",
-      "phone": "5555555555",
-      "email": "omar@example.com",
-      "type": "Gold",
-      "address": "Egypt"
     }
   ],
   "customerTypes": [
@@ -1208,30 +1174,6 @@
       "endDate": "2024-04-28",
       "deposit": 1300,
       "total": 5400
-    },
-    {
-      "id": 48,
-      "code": "C0048",
-      "startDate": "2023-11-03",
-      "endDate": "2024-06-03",
-      "deposit": 1000,
-      "total": 5200
-    },
-    {
-      "id": 49,
-      "code": "C0049",
-      "startDate": "2023-10-18",
-      "endDate": "2024-05-18",
-      "deposit": 1200,
-      "total": 5500
-    },
-    {
-      "id": 50,
-      "code": "C0050",
-      "startDate": "2023-12-10",
-      "endDate": "2024-07-10",
-      "deposit": 1400,
-      "total": 5900
     }
   ]
 }

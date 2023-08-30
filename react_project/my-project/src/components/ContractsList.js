@@ -13,6 +13,7 @@ const ContractsList = () => {
   useEffect(() => {
     getList();
     getTotal();
+    setPage(1);
   }, [refreshPage]);
 
   const getList = async () => {
@@ -40,6 +41,35 @@ const ContractsList = () => {
     console.log(list);
     setPage((prev) => prev - 1);
     setContractList(list);
+  };
+
+  const deleteContract = (contract) => {
+    Swal.fire({
+      title: "Delete Confirmation",
+      icon: "question",
+      text: "Do you want to delete: " + contract.id,
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonText: "Yes, delete it",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await contractService.deleteObject(contract);
+        if (response.status === 200) {
+          Swal.fire({
+            text: "Delete successfully " + contract.name,
+            icon: "success",
+            timer: 1500,
+          });
+          setRefreshPage((prev) => !prev);
+        } else {
+          Swal.fire({
+            text: "You choose cancel ",
+            icon: "warning",
+            timer: 1500,
+          });
+        }
+      }
+    });
   };
 
   const handleEnter = async (event) => {
@@ -153,6 +183,9 @@ const ContractsList = () => {
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-red-700 border border-red-700 rounded-lg hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                    onClick={() => {
+                      deleteContract(contract);
+                    }}
                   >
                     Delete
                   </button>
