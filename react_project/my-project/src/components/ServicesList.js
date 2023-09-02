@@ -61,13 +61,13 @@ const ServicesList = () => {
             timer: 1500,
           });
           setRefreshPage((prev) => !prev);
-        } else {
-          Swal.fire({
-            text: "You choose cancel ",
-            icon: "warning",
-            timer: 1500,
-          });
         }
+      } else {
+        Swal.fire({
+          text: "You choose cancel ",
+          icon: "warning",
+          timer: 1500,
+        });
       }
     });
   };

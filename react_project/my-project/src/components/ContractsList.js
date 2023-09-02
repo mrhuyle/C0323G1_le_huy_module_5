@@ -75,7 +75,7 @@ const ContractsList = () => {
   };
 
   const handleEnter = async (event) => {
-    if (event.key === `Enter`) {
+    if (event.key === "Enter") {
       const list = await contractService.getAll(searchName, 1);
       const listAll = await contractService.getAll(searchName);
       if (listAll.length !== 0) {

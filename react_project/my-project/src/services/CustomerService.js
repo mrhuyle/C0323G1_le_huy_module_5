@@ -29,3 +29,12 @@ export const deleteObject = async (object) => {
     console.log(error);
   }
 };
+
+export const addCustomer = async (customer) => {
+  try {
+    const response = await axios.post(`${baseURL}`, customer);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -41,9 +41,7 @@ const EditContract = () => {
   return (
     <section className="w-5/12 bg-white">
       <div className="px-4 py-8 mx-auto bg-green-100 shadow-lg">
-        <h2 className="mb-2 text-xl font-bold text-gray-900">
-          ADD NEW CONTRACT
-        </h2>
+        <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT CONTRACT</h2>
         <Formik
           initialValues={{
             id: contract?.id,

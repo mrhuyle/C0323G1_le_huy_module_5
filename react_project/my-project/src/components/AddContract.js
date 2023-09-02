@@ -92,7 +92,7 @@ const AddContract = () => {
                   name="startDate"
                   id="startDate"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                  placeholder="0"
+                  placeholder="yyyy-mm-dd"
                 />
                 <ErrorMessage
                   component="small"
@@ -112,7 +112,7 @@ const AddContract = () => {
                   name="endDate"
                   id="endDate"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                  placeholder="$"
+                  placeholder="yyyy-mm-dd"
                 />
                 <ErrorMessage
                   component="small"

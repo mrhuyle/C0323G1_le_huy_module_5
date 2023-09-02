@@ -713,15 +713,15 @@
       "address": "United States"
     },
     {
-      "id": 47,
-      "name": "Aria Martinez",
-      "dob": "2002-01-30",
-      "gender": "female",
-      "identity": "200203152",
-      "phone": "6666666666",
-      "email": "aria@example.com",
-      "type": "Silver",
-      "address": "Spain"
+      "name": "Le Huy",
+      "dob": "2023-05-05",
+      "gender": "male",
+      "identity": "123456789",
+      "phone": "0905111113",
+      "email": "mrhuyle@gmail.com",
+      "type": "Member",
+      "address": "209 Van Tien Dung",
+      "id": 47
     }
   ],
   "customerTypes": [
@@ -779,14 +779,6 @@
     }
   ],
   "contracts": [
-    {
-      "id": 1,
-      "code": "C0001",
-      "startDate": "2023-01-01",
-      "endDate": "2023-10-01",
-      "deposit": 1010,
-      "total": 5000
-    },
     {
       "id": 2,
       "code": "C0002",
@@ -1162,6 +1154,14 @@
       "deposit": 1000,
       "total": 2000,
       "id": 48
+    },
+    {
+      "id": 49,
+      "code": "C1234",
+      "startDate": "2023-09-01",
+      "endDate": "2023-09-02",
+      "deposit": 2,
+      "total": 5
     }
   ]
 }
