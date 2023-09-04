@@ -203,13 +203,25 @@
       "capacity": 2,
       "type": "day",
       "otherService": "private jacuzzi"
+    },
+    {
+      "name": "VillaSmall",
+      "area": 100,
+      "price": 2000,
+      "capacity": 10,
+      "type": "Month",
+      "poolArea": 25,
+      "floors": 1,
+      "standard": "Deluxe",
+      "description": "Good condition",
+      "id": 21
     }
   ],
   "customers": [
     {
       "id": 1,
-      "name": "Louis Le",
-      "dob": "1989-06-20",
+      "name": "Louis Le Le Le",
+      "dob": "1989-06-25",
       "gender": "male",
       "identity": "201602059",
       "phone": "0905169777",
@@ -744,6 +756,20 @@
     {
       "id": 5,
       "name": "Member"
+    }
+  ],
+  "serviceStandards": [
+    {
+      "id": 1,
+      "name": "Standard"
+    },
+    {
+      "id": 2,
+      "name": "Deluxe"
+    },
+    {
+      "id": 3,
+      "name": "Luxury"
     }
   ],
   "otherServices": [

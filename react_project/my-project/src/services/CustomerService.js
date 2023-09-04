@@ -38,3 +38,21 @@ export const addCustomer = async (customer) => {
     console.log(error);
   }
 };
+
+export const getCustomerById = async (id) => {
+  try {
+    const response = await axios.get(`${baseURL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editCustomer = async (customer) => {
+  try {
+    const response = await axios.put(`${baseURL}/${customer.id}`, customer);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

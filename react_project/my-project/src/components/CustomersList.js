@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import * as customerService from "../services/CustomerService";
 import Swal from "sweetalert2";
 import { BsSearch } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CustomersList = () => {
+  const navigate = useNavigate();
   const [customerList, setCustomerList] = useState([]);
   const [totalUnits, setTotalUnits] = useState(0);
   const [page, setPage] = useState(1);
@@ -185,6 +186,9 @@ const CustomersList = () => {
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-green-800 border border-green-800 rounded-lg hover:text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    onClick={() =>
+                      navigate(`/dashboard/customers/edit/${customer.id}`)
+                    }
                   >
                     Edit
                   </button>

@@ -10,6 +10,7 @@ import AddService from "./components/AddService";
 import AddContract from "./components/AddContract";
 import AddCustomer from "./components/AddCustomer";
 import EditContract from "./components/EditContract";
+import EditCustomer from "./components/EditCustomer";
 
 function App() {
   return (
@@ -30,7 +31,14 @@ function App() {
           <Route path="/dashboard/add_service" element={<AddService />}></Route>
           <Route path="/dashboard/add_contract" element={<AddContract />} />
           <Route path="/dashboard/add_customer" element={<AddCustomer />} />
-          <Route path="/dashboard/edit/:id" element={<EditContract />} />
+          <Route
+            path="/dashboard/contracts/edit/:id"
+            element={<EditContract />}
+          />
+          <Route
+            path="/dashboard/customers/edit/:id"
+            element={<EditCustomer />}
+          />
         </Route>
       </Routes>
     </div>

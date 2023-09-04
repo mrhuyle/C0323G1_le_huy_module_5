@@ -29,3 +29,12 @@ export const deleteObject = async (object) => {
     console.log(error);
   }
 };
+
+export const addService = async (service) => {
+  try {
+    const response = await axios.post(`${baseURL}`, service);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
