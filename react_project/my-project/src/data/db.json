@@ -14,14 +14,14 @@
     },
     {
       "id": 2,
-      "name": "House",
+      "name": "House-Edit",
       "area": 200,
       "price": 1000,
       "capacity": 10,
       "type": "day",
+      "floors": 2,
       "standard": "deluxe",
-      "description": "other",
-      "floors": 2
+      "description": "other"
     },
     {
       "id": 4,

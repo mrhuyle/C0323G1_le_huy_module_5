@@ -12,6 +12,7 @@ import AddCustomer from "./components/AddCustomer";
 import EditContract from "./components/EditContract";
 import EditCustomer from "./components/EditCustomer";
 import EditVilla from "./components/EditVilla";
+import EditHouse from "./components/EditHouse";
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route
             path="/dashboard/services/edit/villa/:id"
             element={<EditVilla />}
+          ></Route>
+          <Route
+            path="/dashboard/services/edit/house/:id"
+            element={<EditHouse />}
           ></Route>
         </Route>
       </Routes>

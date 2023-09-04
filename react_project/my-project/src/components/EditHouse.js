@@ -1,21 +1,21 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import * as serviceStandards from "../services/ServiceStandardsService";
 import * as rentService from "../services/RentService";
 import Swal from "sweetalert2";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const EditVilla = () => {
+const EditHouse = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [standards, setStandards] = useState([]);
-  const [villa, setVilla] = useState();
+  const [house, setHouse] = useState();
 
   useEffect(() => {
     getAllStandards();
-    getEditVilla();
+    getEditHouse();
   }, []);
 
   const getAllStandards = async () => {
@@ -23,8 +23,13 @@ const EditVilla = () => {
     setStandards(response);
   };
 
-  const editVilla = async (villa) => {
-    const response = await rentService.editService(villa);
+  const getEditHouse = async () => {
+    const response = await rentService.getServiceById(params.id);
+    setHouse(response);
+  };
+
+  const editHouse = async (house) => {
+    const response = await rentService.editService(house);
     if (response.status === 200) {
       Swal.fire({
         text: "Edit successfully",
@@ -33,42 +38,35 @@ const EditVilla = () => {
       navigate("/dashboard/services");
     }
   };
-
-  const getEditVilla = async () => {
-    const response = await rentService.getServiceById(params.id);
-    setVilla(response);
-  };
-  if (!villa) {
+  if (!house) {
     return null;
   }
-
   return (
     <>
       <section className="w-5/12 bg-white">
         <div className="px-4 py-8 mx-auto bg-green-100 shadow-lg">
-          <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT VILLA</h2>
+          <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT HOUSE</h2>
           <Formik
             initialValues={{
-              id: villa?.id,
-              name: villa?.name,
-              area: villa?.area,
-              price: villa?.price,
-              capacity: villa?.capacity,
-              type: villa?.type,
-              poolArea: villa?.poolArea,
-              floors: villa?.floors,
-              standard: villa?.standard,
-              description: villa?.description,
+              id: house?.id,
+              name: house?.name,
+              area: house?.area,
+              price: house?.price,
+              capacity: house?.capacity,
+              type: house?.type,
+              floors: house?.floors,
+              standard: house?.standard,
+              description: house?.description,
             }}
             onSubmit={(value, { setSubmitting }) => {
               setSubmitting(false);
-              editVilla(value);
+              editHouse(value);
             }}
             validationSchema={Yup.object({
               name: Yup.string()
                 .required("Required")
                 .matches(/^[a-zA-Z-]+$/, "Invalid service name")
-                .matches(/^Villa/, "Must start with Villa"),
+                .matches(/^House/, "Must start with House"),
               area: Yup.number()
                 .required("Required")
                 .min(1, "Must be greater than 0"),
@@ -77,12 +75,9 @@ const EditVilla = () => {
                 .min(1, "Must be greater than 0"),
               capacity: Yup.number()
                 .required("Required")
-                .min(1, "Must be greater than 0"),
-              type: Yup.string().required("Required"),
-              poolArea: Yup.number()
-                .required("Required")
                 .integer("Must be integer")
                 .min(1, "Must be greater than 0"),
+              type: Yup.string().required("Required"),
               floors: Yup.number()
                 .required("Required")
                 .integer("Must be integer")
@@ -98,7 +93,7 @@ const EditVilla = () => {
                     htmlFor="name"
                     className="block mb-2 text-sm font-medium text-gray-900 "
                   >
-                    Service Name
+                    House Name
                   </label>
                   <Field
                     type="text"
@@ -108,9 +103,9 @@ const EditVilla = () => {
                     placeholder="Type service name"
                   />
                   <ErrorMessage
+                    name="name"
                     component="small"
                     style={{ color: "red" }}
-                    name="name"
                   />
                 </div>
                 <div className="w-full">
@@ -128,9 +123,9 @@ const EditVilla = () => {
                     placeholder="0"
                   />
                   <ErrorMessage
+                    name="area"
                     component="small"
                     style={{ color: "red" }}
-                    name="area"
                   />
                 </div>
                 <div className="w-full">
@@ -148,9 +143,9 @@ const EditVilla = () => {
                     placeholder="$"
                   />
                   <ErrorMessage
+                    name="price"
                     component="small"
                     style={{ color: "red" }}
-                    name="price"
                   />
                 </div>
                 <div className="w-full">
@@ -168,9 +163,9 @@ const EditVilla = () => {
                     placeholder="0"
                   />
                   <ErrorMessage
+                    name="capacity"
                     component="small"
                     style={{ color: "red" }}
-                    name="capacity"
                   />
                 </div>
                 <div>
@@ -182,6 +177,7 @@ const EditVilla = () => {
                   </label>
                   <Field
                     as="select"
+                    name="type"
                     id="type"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
                   >
@@ -190,29 +186,9 @@ const EditVilla = () => {
                     <option value="Year">Year</option>
                   </Field>
                   <ErrorMessage
-                    component="small"
-                    style={{ color: "red" }}
                     name="type"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="poolArea"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Pool (m2)
-                  </label>
-                  <Field
-                    type="number"
-                    name="poolArea"
-                    id="poolArea"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    placeholder={0}
-                  />
-                  <ErrorMessage
                     component="small"
                     style={{ color: "red" }}
-                    name="poolArea"
                   />
                 </div>
                 <div>
@@ -230,9 +206,9 @@ const EditVilla = () => {
                     placeholder={0}
                   />
                   <ErrorMessage
+                    name="floors"
                     component="small"
                     style={{ color: "red" }}
-                    name="floors"
                   />
                 </div>
                 <div className="col-span-2">
@@ -249,7 +225,7 @@ const EditVilla = () => {
                       id="standard"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
                     >
-                      {standards?.map((standard) => {
+                      {standards.map((standard) => {
                         return (
                           <option value={standard.name} key={standard.name}>
                             {standard.name}
@@ -258,9 +234,9 @@ const EditVilla = () => {
                       })}
                     </Field>
                     <ErrorMessage
+                      name="standard"
                       component="small"
                       style={{ color: "red" }}
-                      name="standard"
                     />
                   </div>
                 </div>
@@ -275,9 +251,9 @@ const EditVilla = () => {
                     defaultValue={""}
                   />
                   <ErrorMessage
+                    name="description"
                     component="small"
                     style={{ color: "red" }}
-                    name="description"
                   />
                 </div>
               </div>
@@ -286,12 +262,14 @@ const EditVilla = () => {
                   type="submit"
                   className="mx-1 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 "
                 >
-                  Edit Villa
+                  Edit House
                 </button>
                 <button
                   type="reset"
                   className="mx-1  inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 "
-                  onClick={() => navigate("/dashboard/services")}
+                  onClick={() => {
+                    navigate("/dashboard/services");
+                  }}
                 >
                   Cancel
                 </button>
@@ -304,4 +282,4 @@ const EditVilla = () => {
   );
 };
 
-export default EditVilla;
+export default EditHouse;
