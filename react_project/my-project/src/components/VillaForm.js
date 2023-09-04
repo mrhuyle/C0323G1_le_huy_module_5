@@ -61,6 +61,7 @@ const VillaForm = () => {
             .min(1, "Must be greater than 0"),
           capacity: Yup.number()
             .required("Required")
+            .integer("Must be integer")
             .min(1, "Must be greater than 0"),
           type: Yup.string().required("Required"),
           poolArea: Yup.number()

@@ -79,6 +79,10 @@ const ServicesList = () => {
     const serviceName = response.name;
     if (serviceName.includes("Villa")) {
       navigate("/dashboard/services/edit/villa/" + id);
+    } else if (serviceName.includes("House")) {
+      navigate("/dashboard/services/edit/house/" + id);
+    } else {
+      navigate("dashboard/services/edit/room/" + id);
     }
   };
 

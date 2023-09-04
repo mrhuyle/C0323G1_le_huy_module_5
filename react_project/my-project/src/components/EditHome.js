@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const HouseForm = () => {
+const EditHome = () => {
   const navigate = useNavigate();
   const [standards, setStandards] = useState([]);
 
@@ -265,4 +265,4 @@ const HouseForm = () => {
   );
 };
 
-export default HouseForm;
+export default EditHome;

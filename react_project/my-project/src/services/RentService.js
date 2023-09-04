@@ -47,3 +47,12 @@ export const getServiceById = async (id) => {
     console.log(error);
   }
 };
+
+export const editService = async (service) => {
+  try {
+    const response = await axios.put(`${baseURL}/${service.id}`, service);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

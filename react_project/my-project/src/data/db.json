@@ -2,15 +2,15 @@
   "services": [
     {
       "id": 1,
-      "name": "Villa",
+      "name": "Villa-Edit",
       "area": 200,
-      "price": 1000,
-      "capacity": 10,
+      "price": 1005,
+      "capacity": 11,
       "type": "day",
-      "standard": "deluxe",
-      "description": "other",
       "poolArea": 20,
-      "floors": 2
+      "floors": 2,
+      "standard": "deluxe",
+      "description": "other"
     },
     {
       "id": 2,
@@ -215,6 +215,26 @@
       "standard": "Deluxe",
       "description": "Good condition",
       "id": 21
+    },
+    {
+      "name": "House-New",
+      "area": 70,
+      "price": 1000,
+      "capacity": 5,
+      "type": "Year",
+      "floors": 2,
+      "standard": "Luxury",
+      "description": "Luxury",
+      "id": 22
+    },
+    {
+      "name": "Room-New",
+      "area": 20,
+      "price": 200,
+      "capacity": 2,
+      "otherServices": "foods",
+      "type": "Day",
+      "id": 23
     }
   ],
   "customers": [

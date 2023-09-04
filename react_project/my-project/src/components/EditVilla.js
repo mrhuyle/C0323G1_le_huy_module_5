@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as serviceStandards from "../services/ServiceStandardsService";
 import * as rentService from "../services/RentService";
@@ -9,10 +9,13 @@ import * as Yup from "yup";
 
 const EditVilla = () => {
   const navigate = useNavigate();
+  const params = useParams();
   const [standards, setStandards] = useState([]);
+  const [villa, setVilla] = useState();
 
   useEffect(() => {
     getAllStandards();
+    getEditVilla();
   }, []);
 
   const getAllStandards = async () => {
@@ -20,16 +23,24 @@ const EditVilla = () => {
     setStandards(response);
   };
 
-  const addVilla = async (villa) => {
-    const response = await rentService.addService(villa);
-    if (response.status === 201) {
+  const editVilla = async (villa) => {
+    const response = await rentService.editService(villa);
+    if (response.status === 200) {
       Swal.fire({
-        text: "Add successfully",
+        text: "Edit successfully",
         icon: "success",
       });
       navigate("/dashboard/services");
     }
   };
+
+  const getEditVilla = async () => {
+    const response = await rentService.getServiceById(params.id);
+    setVilla(response);
+  };
+  if (!villa) {
+    return null;
+  }
 
   return (
     <>
@@ -38,19 +49,20 @@ const EditVilla = () => {
           <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT VILLA</h2>
           <Formik
             initialValues={{
-              name: "",
-              area: "",
-              price: "",
-              capacity: "",
-              type: "",
-              poolArea: "",
-              floors: "",
-              standard: "",
-              description: "",
+              id: villa?.id,
+              name: villa?.name,
+              area: villa?.area,
+              price: villa?.price,
+              capacity: villa?.capacity,
+              type: villa?.type,
+              poolArea: villa?.poolArea,
+              floors: villa?.floors,
+              standard: villa?.standard,
+              description: villa?.description,
             }}
             onSubmit={(value, { setSubmitting }) => {
               setSubmitting(false);
-              addVilla(value);
+              editVilla(value);
             }}
             validationSchema={Yup.object({
               name: Yup.string()
