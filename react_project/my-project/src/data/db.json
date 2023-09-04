@@ -48,12 +48,12 @@
     },
     {
       "id": 6,
-      "name": "Room-Cityview",
+      "name": "Room-City",
       "area": 40,
       "price": 200,
       "capacity": 2,
-      "type": "day",
-      "otherService": "room service"
+      "otherServices": "karaoke",
+      "type": "day"
     },
     {
       "id": 7,
@@ -144,12 +144,12 @@
     },
     {
       "id": 15,
-      "name": "Room-Jacuzzi",
+      "name": "Room-Ja",
       "area": 50,
       "price": 250,
       "capacity": 2,
-      "type": "day",
-      "otherService": "private jacuzzi"
+      "otherServices": "karaoke",
+      "type": "month"
     },
     {
       "id": 16,

@@ -1,72 +1,72 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import * as serviceStandards from "../services/ServiceStandardsService";
-import * as rentService from "../services/RentService";
-import Swal from "sweetalert2";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
+import * as rentService from "../services/RentService";
+import * as otherServicesService from "../services/OtherServicesService";
+import { useState, useEffect } from "react";
 
-const EditHouse = () => {
+const EditRoom = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [standards, setStandards] = useState([]);
-  const [house, setHouse] = useState();
+  const [otherServices, setOtherServices] = useState([]);
+  const [room, setRoom] = useState();
 
   useEffect(() => {
-    getAllStandards();
-    getEditHouse();
+    getAllOtherServices();
+    getEditRoom();
   }, []);
 
-  const getAllStandards = async () => {
-    const response = await serviceStandards.getAll();
-    setStandards(response);
+  const getAllOtherServices = async () => {
+    const response = await otherServicesService.getAll();
+    setOtherServices(response);
   };
 
-  const getEditHouse = async () => {
+  const getEditRoom = async () => {
     const response = await rentService.getServiceById(params.id);
-    setHouse(response);
+    setRoom(response);
   };
 
-  const editHouse = async (house) => {
-    const response = await rentService.editService(house);
+  const editRoom = async (room) => {
+    const response = await rentService.editService(room);
     if (response.status === 200) {
       Swal.fire({
-        text: "Edit successfully",
+        text: "Add successfully",
         icon: "success",
       });
       navigate("/dashboard/services");
     }
   };
-  if (!house) {
+
+  if (!room) {
     return null;
   }
+
   return (
     <>
       <section className="w-5/12 bg-white">
         <div className="px-4 py-8 mx-auto bg-green-100 shadow-lg">
-          <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT HOUSE</h2>
+          <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT ROOM</h2>
           <Formik
             initialValues={{
-              id: house?.id,
-              name: house?.name,
-              area: house?.area,
-              price: house?.price,
-              capacity: house?.capacity,
-              type: house?.type,
-              floors: house?.floors,
-              standard: house?.standard,
-              description: house?.description,
+              id: room?.id,
+              name: room?.name,
+              area: room?.area,
+              price: room?.price,
+              capacity: room?.capacity,
+              otherServices: room?.otherServices,
+              type: room?.type,
             }}
             onSubmit={(value, { setSubmitting }) => {
               setSubmitting(false);
-              editHouse(value);
+              editRoom(value);
             }}
             validationSchema={Yup.object({
               name: Yup.string()
                 .required("Required")
                 .matches(/^[a-zA-Z-]+$/, "Invalid service name")
-                .matches(/^House/, "Must start with House"),
+                .matches(/^Room/, "Must start with Room"),
               area: Yup.number()
                 .required("Required")
                 .min(1, "Must be greater than 0"),
@@ -77,13 +77,8 @@ const EditHouse = () => {
                 .required("Required")
                 .integer("Must be integer")
                 .min(1, "Must be greater than 0"),
+              otherServices: Yup.string().required("Required"),
               type: Yup.string().required("Required"),
-              floors: Yup.number()
-                .required("Required")
-                .integer("Must be integer")
-                .min(1, "Must be greater than 0"),
-              standard: Yup.string().required("Required"),
-              description: Yup.string().required("Required"),
             })}
           >
             <Form>
@@ -93,7 +88,7 @@ const EditHouse = () => {
                     htmlFor="name"
                     className="block mb-2 text-sm font-medium text-gray-900 "
                   >
-                    House Name
+                    Room Name
                   </label>
                   <Field
                     type="text"
@@ -170,6 +165,33 @@ const EditHouse = () => {
                 </div>
                 <div>
                   <label
+                    htmlFor="otherServices"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Other Services
+                  </label>
+                  <Field
+                    as="select"
+                    name="otherServices"
+                    id="otherServices"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
+                  >
+                    {otherServices.map((service) => {
+                      return (
+                        <option value={service.name} key={service.name}>
+                          {service.name}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  <ErrorMessage
+                    name="otherServices"
+                    component="small"
+                    style={{ color: "red" }}
+                  />
+                </div>
+                <div>
+                  <label
                     htmlFor="type"
                     className="block mb-2 text-sm font-medium text-gray-900 "
                   >
@@ -191,78 +213,13 @@ const EditHouse = () => {
                     style={{ color: "red" }}
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="floors"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Floors
-                  </label>
-                  <Field
-                    type="number"
-                    name="floors"
-                    id="floors"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    placeholder={0}
-                  />
-                  <ErrorMessage
-                    name="floors"
-                    component="small"
-                    style={{ color: "red" }}
-                  />
-                </div>
-                <div className="col-span-2">
-                  <div>
-                    <label
-                      htmlFor="standard"
-                      className="block mb-2 text-sm font-medium text-gray-900 "
-                    >
-                      Standard
-                    </label>
-                    <Field
-                      as="select"
-                      name="standard"
-                      id="standard"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
-                    >
-                      {standards.map((standard) => {
-                        return (
-                          <option value={standard.name} key={standard.name}>
-                            {standard.name}
-                          </option>
-                        );
-                      })}
-                    </Field>
-                    <ErrorMessage
-                      name="standard"
-                      component="small"
-                      style={{ color: "red" }}
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-2">
-                  <Field
-                    as="textarea"
-                    name="description"
-                    id="description"
-                    rows={2}
-                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
-                    placeholder="Your description here"
-                    defaultValue={""}
-                  />
-                  <ErrorMessage
-                    name="description"
-                    component="small"
-                    style={{ color: "red" }}
-                  />
-                </div>
               </div>
               <div>
                 <button
                   type="submit"
                   className="mx-1 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 "
                 >
-                  Edit House
+                  Edit Room
                 </button>
                 <button
                   type="reset"
@@ -282,4 +239,4 @@ const EditHouse = () => {
   );
 };
 
-export default EditHouse;
+export default EditRoom;

@@ -82,7 +82,7 @@ const ServicesList = () => {
     } else if (serviceName.includes("House")) {
       navigate("/dashboard/services/edit/house/" + id);
     } else {
-      navigate("dashboard/services/edit/room/" + id);
+      navigate("/dashboard/services/edit/room/" + id);
     }
   };
 
