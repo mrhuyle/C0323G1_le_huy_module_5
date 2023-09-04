@@ -38,3 +38,12 @@ export const addService = async (service) => {
     console.log(error);
   }
 };
+
+export const getServiceById = async (id) => {
+  try {
+    const response = await axios.get(`${baseURL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

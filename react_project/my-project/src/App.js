@@ -11,6 +11,7 @@ import AddContract from "./components/AddContract";
 import AddCustomer from "./components/AddCustomer";
 import EditContract from "./components/EditContract";
 import EditCustomer from "./components/EditCustomer";
+import EditVilla from "./components/EditVilla";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
             path="/dashboard/customers/edit/:id"
             element={<EditCustomer />}
           />
+          <Route
+            path="/dashboard/services/edit/villa/:id"
+            element={<EditVilla />}
+          ></Route>
         </Route>
       </Routes>
     </div>

@@ -3,8 +3,10 @@ import * as rentService from "../services/RentService";
 import { BsSearch } from "react-icons/bs";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ServicesList = () => {
+  const navigate = useNavigate();
   const [serviceList, setServiceList] = useState([]);
   const [totalUnits, setTotalUnits] = useState(0);
   const [page, setPage] = useState(1);
@@ -70,6 +72,14 @@ const ServicesList = () => {
         });
       }
     });
+  };
+
+  const toEditServiceForm = async (id) => {
+    const response = await rentService.getServiceById(id);
+    const serviceName = response.name;
+    if (serviceName.includes("Villa")) {
+      navigate("/dashboard/services/edit/villa/" + id);
+    }
   };
 
   const handleEnter = async (event) => {
@@ -184,6 +194,7 @@ const ServicesList = () => {
                   <button
                     type="button"
                     className="px-5 py-1 text-sm font-medium text-center text-green-800 border border-green-800 rounded-lg hover:text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    onClick={() => toEditServiceForm(service.id)}
                   >
                     Edit
                   </button>
