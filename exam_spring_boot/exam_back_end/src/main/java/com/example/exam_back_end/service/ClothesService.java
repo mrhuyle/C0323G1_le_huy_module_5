@@ -3,6 +3,8 @@ package com.example.exam_back_end.service;
 import com.example.exam_back_end.model.Clothes;
 import com.example.exam_back_end.repository.ClothesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +16,8 @@ public class ClothesService implements IClothesService {
 
 
     @Override
-    public List<Clothes> findAll() {
-        return clothesRepository.findAll();
+    public Page<Clothes> findAll(Pageable pageable, String name) {
+        return clothesRepository.findClothesByNameContaining(pageable, name);
     }
 
     @Override

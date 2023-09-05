@@ -3,6 +3,9 @@ package com.example.exam_back_end.controller;
 import com.example.exam_back_end.model.Clothes;
 import com.example.exam_back_end.service.IClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,20 +19,22 @@ public class ClothesController {
     @Autowired
     private IClothesService clothesService;
 
-    @GetMapping("/")
-    public ResponseEntity<List<Clothes>> getListClothes() {
-        List<Clothes> listClothes = clothesService.findAll();
+    @GetMapping
+    public ResponseEntity<Page<Clothes>> getListClothes(@RequestParam(value = "page", defaultValue = "0", required = false) int page, @RequestParam(value = "name", defaultValue = "", required = false) String name) {
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<Clothes> listClothes = clothesService.findAll(pageable, name);
+        System.out.println("Check:" + listClothes);
         if (listClothes.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
-            return new ResponseEntity<>(clothesService.findAll(), HttpStatus.OK);
+            return new ResponseEntity<>(listClothes, HttpStatus.OK);
         }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Clothes> getById(@PathVariable("id") int id) {
         Clothes clothes = clothesService.findById(id);
-        if (clothes==null) {
+        if (clothes == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(clothes, HttpStatus.OK);

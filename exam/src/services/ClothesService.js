@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/api/clothes/";
+const baseURL = "http://localhost:8080/api/clothes";
 
-export const getAll = async (name, type) => {
+export const getAll = async (page, name, type) => {
   try {
     let response = null;
     if (name == null && type == null) {
-      response = await axios.get(`${baseURL}?_sort=quantity&_order=desc`);
+      response = await axios.get(`${baseURL}?page=${page}`);
     } else if (type == null) {
       response = await axios.get(
         `${baseURL}?name_like=${name}&_sort=quantity&_order=asc`
@@ -25,7 +25,7 @@ export const getAll = async (name, type) => {
 
 export const deleteCloth = async (id) => {
   try {
-    const response = await axios.delete(`${baseURL}${id}`);
+    const response = await axios.delete(`${baseURL}/${id}`);
     console.log(response);
     return response;
   } catch (error) {
@@ -44,7 +44,7 @@ export const addCloth = async (cloth) => {
 
 export const getClothById = async (id) => {
   try {
-    const response = await axios.get(`${baseURL}${id}`);
+    const response = await axios.get(`${baseURL}/${id}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -53,7 +53,7 @@ export const getClothById = async (id) => {
 
 export const editCloth = async (cloth) => {
   try {
-    const url = baseURL + cloth.id;
+    const url = baseURL + "/" + cloth.id;
     console.log(url);
     console.log(cloth);
     const response = await axios({

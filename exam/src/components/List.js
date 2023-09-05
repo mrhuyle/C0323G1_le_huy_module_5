@@ -11,6 +11,11 @@ const List = () => {
   const [searchName, setSearchName] = useState("");
   const [types, setTypes] = useState([]);
   const [searchType, setSearchType] = useState("");
+  const [totalPages, setTotalPages] = useState("");
+  const [pageNo, setPageNo] = useState(0);
+  const [elements, setElements] = useState(5);
+  const [last, setLast] = useState(false);
+  const [first, setFirst] = useState(true);
 
   useEffect(() => {
     getAll();
@@ -18,8 +23,11 @@ const List = () => {
   }, []);
 
   const getAll = async () => {
-    const response = await clothesService.getAll();
-    setList(response);
+    const response = await clothesService.getAll(0, null, null);
+    setList(response.content);
+    setTotalPages(response.totalElements);
+    setPageNo(response.number);
+    setElements(response.number * response.size + response.numberOfElements);
   };
 
   const getTypes = async () => {
@@ -76,6 +84,28 @@ const List = () => {
         }
       }
     });
+  };
+
+  const nextPage = async () => {
+    const response = await clothesService.getAll(pageNo + 1, null, null);
+    console.log(response);
+    setList(response.content);
+    setTotalPages(response.totalElements);
+    setPageNo(response.number);
+    setElements(response.number * response.size + response.numberOfElements);
+    setLast(response.last);
+    setFirst(response.first);
+  };
+
+  const previousPage = async () => {
+    const response = await clothesService.getAll(pageNo - 1, null, null);
+    console.log(response);
+    setList(response.content);
+    setTotalPages(response.totalElements);
+    setPageNo(response.number);
+    setElements(response.number * response.size + response.numberOfElements);
+    setLast(response.last);
+    setFirst(response.first);
   };
 
   if (!types) {
@@ -210,28 +240,34 @@ const List = () => {
             </tbody>
           </table>
         </div>
-        {/* <nav
+        <nav
           className="absolute flex items-center justify-between w-full pb-2 bottom-1"
           aria-label="Table navigation"
         >
           <span className="flex gap-2 ml-6 text-sm font-normal text-gray-900 dark:text-gray-900">
             <span className="font-semibold text-gray-900 dark:text-gray-900"></span>
-            of
+            {elements} of {totalPages}
             <span className="font-semibold text-gray-900 dark:text-gray-900"></span>
           </span>
           <ul className="inline-flex h-8 mr-6 -space-x-px text-sm">
-            <li className="w-20">
-              <div className="flex items-center justify-center h-8 px-3 ml-0 leading-tight text-gray-600 bg-white border border-gray-900 rounded-l-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
+            <li className={`w-20 ${first ? "invisible" : null}`}>
+              <div
+                className="flex items-center justify-center h-8 px-3 ml-0 leading-tight text-gray-600 bg-white border border-gray-900 rounded-l-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-blue-400 dark:hover:text-white "
+                onClick={() => previousPage()}
+              >
                 Previous
               </div>
             </li>
-            <li className="w-20">
-              <div className="flex items-center justify-center h-8 px-3 leading-tight text-gray-600 bg-white border border-gray-900 rounded-r-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
+            <li className={`w-20 ${last ? "invisible" : null}`}>
+              <div
+                className="flex items-center justify-center h-8 px-3 leading-tight text-gray-600 bg-white border border-gray-900 rounded-r-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-blue-400 dark:hover:text-white"
+                onClick={() => nextPage()}
+              >
                 Next
               </div>
             </li>
           </ul>
-        </nav> */}
+        </nav>
       </section>
     </>
   );

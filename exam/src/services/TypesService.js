@@ -10,3 +10,11 @@ export const getAllTypes = async () => {
     console.log(error);
   }
 };
+
+export const getTypeByID = async (id) => {
+  try {
+    const response = await axios.get(`${baseUrl}/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
