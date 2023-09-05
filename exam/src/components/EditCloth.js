@@ -28,7 +28,9 @@ const EditCloth = () => {
   };
 
   const editCloth = async (cloth) => {
+    console.log(cloth);
     const response = await clothesService.editCloth(cloth);
+    console.log(response);
     if (response.status === 200) {
       Swal.fire({
         text: "Edit successfully",
@@ -67,7 +69,6 @@ const EditCloth = () => {
                 .required("Required")
                 .integer("Must be integer")
                 .min(1, "Must greater than 0"),
-              type: Yup.string().required("Required"),
             })}
           >
             <Form>
@@ -149,7 +150,7 @@ const EditCloth = () => {
                   >
                     {types.map((type) => {
                       return (
-                        <option key={type.id} value={type.name} name="type">
+                        <option key={type.id} value={type.id} name="type">
                           {type.name}
                         </option>
                       );

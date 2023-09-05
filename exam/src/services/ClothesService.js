@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3000/clothes";
+const baseURL = "http://localhost:8080/api/clothes/";
 
 export const getAll = async (name, type) => {
   try {
@@ -23,10 +23,9 @@ export const getAll = async (name, type) => {
   }
 };
 
-export const deleteCloth = async (cloth) => {
+export const deleteCloth = async (id) => {
   try {
-    const id = cloth.id;
-    const response = await axios.delete(`${baseURL}/${id}`);
+    const response = await axios.delete(`${baseURL}${id}`);
     console.log(response);
     return response;
   } catch (error) {
@@ -45,7 +44,7 @@ export const addCloth = async (cloth) => {
 
 export const getClothById = async (id) => {
   try {
-    const response = await axios.get(`${baseURL}/${id}`);
+    const response = await axios.get(`${baseURL}${id}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -54,7 +53,15 @@ export const getClothById = async (id) => {
 
 export const editCloth = async (cloth) => {
   try {
-    const response = await axios.put(`${baseURL}/${cloth.id}`, cloth);
+    const url = baseURL + cloth.id;
+    console.log(url);
+    console.log(cloth);
+    const response = await axios({
+      method: "put",
+      url: url,
+      data: cloth,
+    });
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

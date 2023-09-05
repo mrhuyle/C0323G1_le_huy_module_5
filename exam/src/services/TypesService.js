@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3000/types";
+const baseUrl = "http://localhost:8080/api/types/";
 export const getAllTypes = async () => {
   try {
     const response = await axios.get(`${baseUrl}`);

@@ -54,6 +54,30 @@ const List = () => {
     }
     setSearchType("");
   };
+
+  const deleteClothes = (id) => {
+    Swal.fire({
+      title: "Delete Confirmation",
+      text: "Do you want to delete cloth Id: " + id,
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonText: "Delete",
+      icon: "warning",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await clothesService.deleteCloth(id);
+        if (response.status === 200) {
+          Swal.fire({
+            text: "Delete successfully",
+            icon: "success",
+            timer: 2000,
+          });
+          getAll();
+        }
+      }
+    });
+  };
+
   if (!types) {
     return null;
   }
@@ -158,7 +182,7 @@ const List = () => {
                       </th>
                       <td className="px-6 py-3">{cloth.date}</td>
                       <td className="px-6 py-3">{cloth.quantity} unit</td>
-                      <td className="px-6 py-3">{cloth.type}</td>
+                      <td className="px-6 py-3">{cloth.type.name}</td>
                       <td className="flex items-center justify-around gap-4 px-6 py-3">
                         <button
                           type="button"
@@ -172,6 +196,9 @@ const List = () => {
                         <button
                           type="button"
                           className="px-5 py-1 text-sm font-medium text-center text-red-700 border border-red-700 rounded-lg hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                          onClick={() => {
+                            deleteClothes(cloth.id);
+                          }}
                         >
                           Delete
                         </button>
