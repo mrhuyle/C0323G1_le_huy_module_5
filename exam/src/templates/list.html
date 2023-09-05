@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>List</title>
+  </head>
+  <body>
+    <div class="relative w-full mr-8 -translate-x-1/2 shadow-md sm:rounded-lg left-1/2">
+        <div class="flex items-center justify-between pb-2">
+          <div class="relative flex items-center justify-start w-1/6 text-gray-600">
+            <input
+              class="h-10 pr-6 text-sm bg-white border-2 border-gray-400 rounded-lg px-9 w-26 focus:outline-none"
+              type="search"
+              name="search"
+              placeholder="Search"
+            />
+            <div class="absolute opacity-70 left-3">
+              <BsSearch
+                class="cursor-pointer"
+                size={15}
+              />
+            </div>
+          </div>
+          <p class="text-2xl text-green-900 ">Services</p>
+          <Link
+            to="/dashboard/add_service"
+            class="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white"
+          >
+            Add
+          </Link>
+        </div>
+  
+        <table class="w-full text-sm text-left text-gray-800 rounded dark:text-gray-400">
+          <thead class="text-sm text-white uppercase bg-gray-50 dark:bg-green-800 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Area
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Price
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Capacity
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Rent Type
+              </th>
+              <th scope="col" class="px-6 py-3 text-center">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr
+                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-green-100"
+                >
+                  <th
+                    scope="row"
+                    class="px-6 py-3 font-semibold text-gray-800 whitespace-nowrap dark:text-gray-400"
+                  >
+                    Service name
+                  </th>
+                  <td class="px-6 py-3">
+                    Service area <span>m</span>
+                    <sup>2</sup>
+                  </td>
+                  <td class="px-6 py-3">Price</td>
+                  <td class="px-6 py-3">Capacity</td>
+                  <td class="px-6 py-3">Type</td>
+                  <td class="flex items-center justify-around gap-4 px-6 py-3">
+                    <button
+                      type="button"
+                      class="px-5 py-1 text-sm font-medium text-center text-green-800 border border-green-800 rounded-lg hover:text-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      class="px-5 py-1 text-sm font-medium text-center text-red-700 border border-red-700 rounded-lg hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+        <nav
+          class="absolute flex items-center justify-between w-full pb-2 bottom-1"
+          aria-label="Table navigation"
+        >
+          <span class="flex gap-2 ml-6 text-sm font-normal text-gray-900 dark:text-gray-900">
+            <span class="font-semibold text-gray-900 dark:text-gray-900">
+            </span>
+            of
+            <span class="font-semibold text-gray-900 dark:text-gray-900">
+            </span>
+          </span>
+          <ul class="inline-flex h-8 mr-6 -space-x-px text-sm">
+            <li class="w-20">
+              <div
+                class="flex items-center justify-center h-8 px-3 ml-0 leading-tight text-gray-600 bg-white border border-gray-900 rounded-l-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                Previous
+              </div>
+            </li>
+            <li
+              class="w-20"
+            >
+              <div
+                class="flex items-center justify-center h-8 px-3 leading-tight text-gray-600 bg-white border border-gray-900 rounded-r-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                Next
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  </body>
+</html>

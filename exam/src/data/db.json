@@ -1,0 +1,88 @@
+{
+  "clothes": [
+    {
+      "id": 1,
+      "name": "Shirt",
+      "date": "2023-01-01",
+      "quantity": 200,
+      "type": "Shirt"
+    },
+    {
+      "id": 2,
+      "name": "Kaki pants",
+      "date": "2023-03-01",
+      "quantity": 100,
+      "type": "Pants"
+    },
+    {
+      "id": 3,
+      "name": "Sneakers",
+      "date": "2023-01-01",
+      "quantity": 200,
+      "type": "Shoes"
+    },
+    {
+      "id": 4,
+      "name": "Shirt Louis",
+      "date": "2023-04-01",
+      "quantity": 300,
+      "type": "Shirt"
+    },
+    {
+      "id": 5,
+      "name": "Shirt Jacky sa dfas fdsa f",
+      "date": "2022-12-28",
+      "quantity": 400,
+      "type": "Pants"
+    },
+    {
+      "id": 6,
+      "name": "Cloth Neewwww",
+      "date": "2023-01-29",
+      "quantity": 20,
+      "type": "Pants"
+    },
+    {
+      "id": 7,
+      "name": "Louis Vuitton",
+      "date": "2023-01-01",
+      "quantity": 120,
+      "type": "Pants"
+    },
+    {
+      "id": 8,
+      "name": "Abc Xyz abc",
+      "date": "2023-05-01",
+      "quantity": 90,
+      "type": "Pants"
+    },
+    {
+      "id": 9,
+      "name": "Hermes",
+      "date": "2023-09-01",
+      "quantity": 120,
+      "type": "Shoes"
+    },
+    {
+      "id": 10,
+      "name": "Dior",
+      "date": "2023-01-10",
+      "quantity": 120,
+      "type": "Shirt"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "Shirt"
+    },
+    {
+      "id": 2,
+      "name": "Pants"
+    },
+    {
+      "id": 3,
+      "name": "Shoes"
+    }
+  ]
+}
