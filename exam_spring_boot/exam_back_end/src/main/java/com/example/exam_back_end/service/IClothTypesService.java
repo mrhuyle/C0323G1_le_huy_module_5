@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IClothTypesService {
     List<ClothTypes> findAll();
+    ClothTypes save(ClothTypes type);
 }

@@ -34,6 +34,7 @@ export const deleteCloth = async (id) => {
 };
 
 export const addCloth = async (cloth) => {
+  console.log(cloth);
   try {
     const response = await axios.post(`${baseURL}`, cloth);
     return response;

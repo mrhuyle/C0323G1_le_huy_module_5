@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import * as clothesService from "../services/ClothesService";
-import { Formik, Form, ErrorMessage, Field } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as typesService from "../services/TypesService";
 import Swal from "sweetalert2";
-import * as Yup from "yup";
 
-const EditCloth = () => {
-  const params = useParams();
+const AddCloth = () => {
   const navigate = useNavigate();
-  const [cloth, setCloth] = useState();
   const [types, setTypes] = useState();
 
   useEffect(() => {
-    getClothById();
     getTypes();
   }, []);
 
@@ -22,18 +19,14 @@ const EditCloth = () => {
     setTypes(response);
   };
 
-  const getClothById = async () => {
-    const response = await clothesService.getClothById(params.id);
-    setCloth(response);
-  };
-
-  const editCloth = async (cloth) => {
+  const addCloth = async (cloth) => {
+    console.log(types[0]);
     console.log(cloth);
-    const response = await clothesService.editCloth(cloth);
+    const response = await clothesService.addCloth(cloth);
     console.log(response);
-    if (response.status === 200) {
+    if (response.status === 201) {
       Swal.fire({
-        text: "Edit successfully",
+        text: "Add successfully",
         icon: "success",
         timer: 2000,
       });
@@ -41,7 +34,7 @@ const EditCloth = () => {
     }
   };
 
-  if (!cloth) {
+  if (!types) {
     return null;
   }
 
@@ -49,18 +42,17 @@ const EditCloth = () => {
     <div className="w-full h-max">
       <section className="absolute w-5/12 -translate-x-1/2 -translate-y-1/2 bg-white left-1/2 top-1/2">
         <div className="px-4 py-8 mx-auto bg-green-100 shadow-lg">
-          <h2 className="mb-2 text-xl font-bold text-gray-900">EDIT CLOTH</h2>
+          <h2 className="mb-2 text-xl font-bold text-gray-900">ADD CLOTH</h2>
           <Formik
             initialValues={{
-              id: cloth?.id,
-              name: cloth?.name,
-              date: cloth?.date,
-              quantity: cloth?.quantity,
-              type: cloth?.type,
+              name: "",
+              date: "",
+              quantity: "",
+              type: types[1],
             }}
             onSubmit={(value, { setSubmitting }) => {
               setSubmitting(false);
-              editCloth(value);
+              addCloth(value);
             }}
             validationSchema={Yup.object({
               name: Yup.string().required("Required"),
@@ -150,7 +142,7 @@ const EditCloth = () => {
                   >
                     {types.map((type) => {
                       return (
-                        <option key={type.id} value={type} name="type">
+                        <option key={type.id} value={type.id} name="type">
                           {type.name}
                         </option>
                       );
@@ -168,7 +160,7 @@ const EditCloth = () => {
                   type="submit"
                   className="mx-1 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200"
                 >
-                  Edit Cloth
+                  Add Cloth
                 </button>
                 <button
                   type="reset"
@@ -188,4 +180,4 @@ const EditCloth = () => {
   );
 };
 
-export default EditCloth;
+export default AddCloth;

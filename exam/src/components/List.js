@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import * as clothesService from "../services/ClothesService";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
@@ -160,12 +160,12 @@ const List = () => {
               </div> */}
             </div>
             <p className="text-2xl text-green-900 ">Clothes List</p>
-            {/* <Link
-              to="/dashboard/add_service"
+            <Link
+              to="/add"
               className="w-1/6 px-2 py-1 text-base text-green-800 bg-green-200 border-2 border-gray-400 rounded hover:bg-green-700 hover:text-white"
             >
               Add
-            </Link> */}
+            </Link>
           </div>
           <table className="w-full text-sm text-left text-gray-800 rounded dark:text-gray-400">
             <thead className="text-sm text-white uppercase bg-gray-50 dark:bg-green-800 dark:text-gray-400">

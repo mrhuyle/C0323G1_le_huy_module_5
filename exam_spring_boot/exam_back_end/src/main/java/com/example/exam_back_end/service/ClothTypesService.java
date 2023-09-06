@@ -17,4 +17,9 @@ public class ClothTypesService implements IClothTypesService {
     public List<ClothTypes> findAll() {
         return clothTypesRepository.findAll();
     }
+
+    @Override
+    public ClothTypes save(ClothTypes type) {
+        return clothTypesRepository.save(type);
+    }
 }
